@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">Grocer Grocer</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
+
+    <!-- Navigation bar -->
+    <string name="nav_user">Grocer Grocer</string>
+    <string name="nav_email">grocergrocer.app@gmail.com</string>
+    <string name="nav_explore">Explore</string>
+    <string name="nav_categories">Categories</string>
+    <string name="nav_shopping_cart">Shopping Cart</string>
+    <string name="nav_order_history">Order History</string>
+    <string name="nav_grocery_list">Grocery List</string>
+    <string name="nav_logout">Logout</string>
+</resources>
