@@ -6,6 +6,11 @@
 
     <string name="action_settings">Settings</string>
 
+    <!-- Screen label -->
+    <string name="login">Login</string>
+    <string name="signup">Signup</string>
+    <string name="explore">Explore</string>
+
     <!-- Navigation bar -->
     <string name="nav_user">Grocer Grocer</string>
     <string name="nav_email">grocergrocer.app@gmail.com</string>
@@ -15,4 +20,38 @@
     <string name="nav_order_history">Order History</string>
     <string name="nav_grocery_list">Grocery List</string>
     <string name="nav_logout">Logout</string>
+
+    <!-- Login Activity -->
+    <string name="no_account_yet">No account yet? Create one</string>
+    <string name="login_via_email">Login to shop via email</string>
+    <string name="email">E-MAIL</string>
+    <string name="facebook">FACEBOOK</string>
+    <string name="dont_have_account">Don\'t have an account?</string>
+    <string name="skip">Skip</string>
+
+    <!-- SignUp Activity -->
+    <string name="create_account">Create Account</string>
+    <string name="already_member">Already a member? Login</string>
+
+    <!-- Buttons -->
+    <string name="btn_add_to_cart">Add To Cart</string>
+    <string name="btn_login">Login</string>
+
+    <!-- Prompts -->
+    <string name="prompt_authenticating">Authenticating&#8230;</string>
+    <string name="prompt_creating_account">Creating Account&#8230;</string>
+
+    <!-- Errors -->
+    <string name="err_invalid_name">at least 3 characters</string>
+    <string name="err_invalid_email">enter a valid email address</string>
+    <string name="err_invalid_password">between 4 and 10 alphanumeric characters</string>
+    <string name="err_login_failed">Login failed</string>
+
+    <!-- Hints -->
+    <string name="hint_name">Name</string>
+    <string name="hint_email">Email</string>
+    <string name="hint_password">Password</string>
+
+    <!-- Others -->
+    <string name="peso_sign">₱</string>
 </resources>
