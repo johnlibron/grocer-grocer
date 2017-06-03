@@ -68,6 +68,15 @@
             android:name=".ui.ShoppingCartActivity"
             android:label="@string/shopping_cart"
             android:screenOrientation="portrait"/>
+
+        <activity
+            android:name=".ui.GroceryListActivity"
+            android:label="@string/grocery_list"
+            android:screenOrientation="portrait"/>
+
+        <activity
+            android:name=".ui.GroceryListItemActivity"
+            android:screenOrientation="portrait"/>
     </application>
 
 </manifest>

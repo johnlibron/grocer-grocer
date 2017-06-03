@@ -10,5 +10,6 @@ public abstract class SpannableTextView extends ClickableSpan {
     public void updateDrawState(TextPaint textPaint) {
         textPaint.setUnderlineText(true);
         textPaint.setColor(Color.parseColor("#ff5252"));
+        textPaint.setFakeBoldText(true);
     }
 }

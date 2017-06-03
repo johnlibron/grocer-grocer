@@ -90,7 +90,8 @@ public class ShoppingCartActivity extends AppCompatActivity
         } else if (id == R.id.nav_order_history) {
 
         } else if (id == R.id.nav_grocery_list) {
-
+            intent = new Intent(this, GroceryListActivity.class);
+            startActivity(intent);
         } else if (id == R.id.nav_logout) {
 
         }

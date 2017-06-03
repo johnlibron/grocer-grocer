@@ -49,7 +49,7 @@ public class ProductActivity extends AppCompatActivity implements View.OnClickLi
         btnAddToCart.setOnClickListener(this);
         btnSaveToList.setOnClickListener(this);
 
-        makeTextViewResizable(txtProductDescription, 3, "View More", true);
+        makeTextViewResizable(txtProductDescription, 3, "Read More", true);
     }
 
     @Override
