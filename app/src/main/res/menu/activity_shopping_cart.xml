@@ -8,10 +8,4 @@
         android:title="@string/action_search"
         app:showAsAction="ifRoom" />
 
-    <item
-        android:id="@+id/action_shopping_cart"
-        android:icon="@mipmap/ic_shopping_cart_white"
-        android:title="@string/action_shopping_cart"
-        app:showAsAction="ifRoom" />
-
 </menu>

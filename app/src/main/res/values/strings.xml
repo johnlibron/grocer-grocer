@@ -4,12 +4,17 @@
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
+    <!-- Action bar menus -->
     <string name="action_settings">Settings</string>
+    <string name="action_shopping_cart">Shopping Cart</string>
+    <string name="action_search">Search</string>
 
     <!-- Screen label -->
     <string name="login">Login</string>
     <string name="signup">Signup</string>
     <string name="explore">Explore</string>
+    <string name="categories">Categories</string>
+    <string name="shopping_cart">Shopping Cart</string>
 
     <!-- Navigation bar -->
     <string name="nav_user">Grocer Grocer</string>
@@ -33,9 +38,24 @@
     <string name="create_account">Create Account</string>
     <string name="already_member">Already a member? Login</string>
 
+    <!-- Search Activity -->
+    <string name="no_results_found">No results found</string>
+
+    <!-- Product Activity -->
+    <string name="about_the_product">About the Product</string>
+    <string name="product_description">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur pretium nisl vel lorem dignissim, vitae suscipit turpis aliquet. Nullam pulvinar mauris sit amet vehicula tincidunt. Nam luctus tellus vel molestie placerat.\n\n
+        Praesent finibus felis nec tristique sollicitudin. Donec suscipit dolor lacus, sed sodales libero facilisis non. Nulla rhoncus, enim ac ultrices porttitor, ante nibh suscipit libero, vitae ornare tortor dolor facilisis felis.\n\n
+        Nulla ornare pulvinar orci, eget pharetra eros auctor ut. Duis venenatis vitae risus vitae iaculis. Duis dignissim neque quis lorem laoreet, in aliquam ante elementum. Vivamus tortor nulla, sollicitudin et risus mattis, congue placerat lacus.\n\n
+        Integer gravida vestibulum justo. Vivamus semper euismod mi ac auctor.
+    </string>
+
     <!-- Buttons -->
     <string name="btn_add_to_cart">Add To Cart</string>
     <string name="btn_login">Login</string>
+    <string name="btn_save_to_list">Save To List</string>
+    <string name="btn_add">+</string>
+    <string name="btn_minus">—</string>
 
     <!-- Prompts -->
     <string name="prompt_authenticating">Authenticating&#8230;</string>
@@ -51,7 +71,9 @@
     <string name="hint_name">Name</string>
     <string name="hint_email">Email</string>
     <string name="hint_password">Password</string>
+    <string name="search_hint">Search</string>
 
     <!-- Others -->
+    <string name="zero">0</string>
     <string name="peso_sign">₱</string>
 </resources>

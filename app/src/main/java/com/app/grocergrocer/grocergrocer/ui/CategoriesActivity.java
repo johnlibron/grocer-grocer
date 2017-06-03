@@ -2,32 +2,30 @@ package com.app.grocergrocer.grocergrocer.ui;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
 import com.app.grocergrocer.grocergrocer.R;
-import com.app.grocergrocer.grocergrocer.adapter.ExploreAdapter;
-import com.facebook.drawee.backends.pipeline.Fresco;
+import com.app.grocergrocer.grocergrocer.adapter.CategoriesAdapter;
 
-public class ExploreActivity extends AppCompatActivity
+public class CategoriesActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_explore);
+        setContentView(R.layout.activity_categories);
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        Fresco.initialize(this);
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -37,11 +35,11 @@ public class ExploreActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
-        navigationView.getMenu().getItem(0).setChecked(true);
+        navigationView.getMenu().getItem(1).setChecked(true);
 
         RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
         RecyclerView.LayoutManager layoutManager = new GridLayoutManager(this, 2);
-        RecyclerView.Adapter adapter = new ExploreAdapter();
+        RecyclerView.Adapter adapter = new CategoriesAdapter();
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setAdapter(adapter);
@@ -85,10 +83,10 @@ public class ExploreActivity extends AppCompatActivity
         Intent intent;
 
         if (id == R.id.nav_explore) {
-            // explore
-        } else if (id == R.id.nav_categories) {
-            intent = new Intent(this, CategoriesActivity.class);
+            intent = new Intent(this, ExploreActivity.class);
             startActivity(intent);
+        } else if (id == R.id.nav_categories) {
+            // categories
         } else if (id == R.id.nav_shopping_cart) {
             intent = new Intent(this, ShoppingCartActivity.class);
             startActivity(intent);

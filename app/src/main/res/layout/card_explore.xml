@@ -56,11 +56,11 @@
             android:id="@+id/border_top_button"
             android:layout_width="fill_parent"
             android:layout_height="1dp"
-            android:layout_above="@+id/button_add_to_cart"
+            android:layout_above="@+id/add_to_cart"
             android:background="@color/colorDivider" />
 
         <android.support.v7.widget.AppCompatButton
-            android:id="@+id/button_add_to_cart"
+            android:id="@+id/add_to_cart"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"

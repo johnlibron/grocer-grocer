@@ -14,7 +14,7 @@ import com.app.grocergrocer.grocergrocer.R;
 import com.app.grocergrocer.grocergrocer.ui.ProductActivity;
 import com.facebook.drawee.view.SimpleDraweeView;
 
-public class ExploreAdapter extends RecyclerView.Adapter<ExploreAdapter.ViewHolder> {
+public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.ViewHolder> {
 
     private String[] productNames = {
             "Colgate Max Clean Smart Foam",
@@ -100,13 +100,13 @@ public class ExploreAdapter extends RecyclerView.Adapter<ExploreAdapter.ViewHold
     }
 
     @Override
-    public ViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
-        View v = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.card_explore, viewGroup, false);
-        return new ViewHolder(v);
+    public CategoryAdapter.ViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
+        View v = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.card_category, viewGroup, false);
+        return new CategoryAdapter.ViewHolder(v);
     }
 
     @Override
-    public void onBindViewHolder(final ViewHolder viewHolder, int i) {
+    public void onBindViewHolder(final CategoryAdapter.ViewHolder viewHolder, int i) {
         Uri uri = Uri.parse(productImages[i]);
         viewHolder.sdvProductImage.setImageURI(uri);
         viewHolder.txtProductName.setText(productNames[i]);

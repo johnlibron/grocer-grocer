@@ -24,6 +24,19 @@
         </activity>
 
         <activity
+            android:name=".ui.SearchActivity"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.SEARCH" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.app.searchable"
+                android:resource="@xml/searchable" />
+        </activity>
+
+        <activity
             android:name=".ui.LoginActivity"
             android:label="@string/login"
             android:screenOrientation="portrait"/>
@@ -36,6 +49,24 @@
         <activity
             android:name=".ui.ExploreActivity"
             android:label="@string/explore"
+            android:screenOrientation="portrait"/>
+
+        <activity
+            android:name=".ui.CategoriesActivity"
+            android:label="@string/categories"
+            android:screenOrientation="portrait"/>
+
+        <activity
+            android:name=".ui.CategoryActivity"
+            android:screenOrientation="portrait"/>
+
+        <activity
+            android:name=".ui.ProductActivity"
+            android:screenOrientation="portrait"/>
+
+        <activity
+            android:name=".ui.ShoppingCartActivity"
+            android:label="@string/shopping_cart"
             android:screenOrientation="portrait"/>
     </application>
 

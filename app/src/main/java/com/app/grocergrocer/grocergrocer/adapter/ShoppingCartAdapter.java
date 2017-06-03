@@ -14,7 +14,7 @@ import com.app.grocergrocer.grocergrocer.R;
 import com.app.grocergrocer.grocergrocer.ui.ProductActivity;
 import com.facebook.drawee.view.SimpleDraweeView;
 
-public class ExploreAdapter extends RecyclerView.Adapter<ExploreAdapter.ViewHolder> {
+public class ShoppingCartAdapter extends RecyclerView.Adapter<ShoppingCartAdapter.ViewHolder> {
 
     private String[] productNames = {
             "Colgate Max Clean Smart Foam",
@@ -74,7 +74,9 @@ public class ExploreAdapter extends RecyclerView.Adapter<ExploreAdapter.ViewHold
         TextView txtProductName;
         TextView txtProductMeasurement;
         TextView txtProductPrice;
-        Button btnAddToCart;
+        TextView txtProductQuantity;
+        Button btnAdd;
+        Button btnMinus;
 
         ViewHolder(View itemView) {
             super(itemView);
@@ -82,7 +84,9 @@ public class ExploreAdapter extends RecyclerView.Adapter<ExploreAdapter.ViewHold
             txtProductName = (TextView)itemView.findViewById(R.id.product_name);
             txtProductMeasurement = (TextView)itemView.findViewById(R.id.product_measurement);
             txtProductPrice = (TextView)itemView.findViewById(R.id.product_price);
-            btnAddToCart = (Button) itemView.findViewById(R.id.add_to_cart);
+            txtProductQuantity = (TextView) itemView.findViewById(R.id.product_quantity);
+            btnAdd = (Button) itemView.findViewById(R.id.btn_add);
+            btnMinus = (Button) itemView.findViewById(R.id.btn_minus);
 
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override public void onClick(View v) {
@@ -100,19 +104,35 @@ public class ExploreAdapter extends RecyclerView.Adapter<ExploreAdapter.ViewHold
     }
 
     @Override
-    public ViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
-        View v = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.card_explore, viewGroup, false);
+    public ShoppingCartAdapter.ViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
+        View v = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.card_shopping_cart, viewGroup, false);
         return new ViewHolder(v);
     }
 
     @Override
-    public void onBindViewHolder(final ViewHolder viewHolder, int i) {
+    public void onBindViewHolder(final ShoppingCartAdapter.ViewHolder viewHolder, int i) {
         Uri uri = Uri.parse(productImages[i]);
         viewHolder.sdvProductImage.setImageURI(uri);
         viewHolder.txtProductName.setText(productNames[i]);
         viewHolder.txtProductMeasurement.setText(productMeasurements[i]);
         String productPrice = "₱ " + productPrices[i];
         viewHolder.txtProductPrice.setText(productPrice);
+
+        viewHolder.btnAdd.setOnClickListener(new View.OnClickListener() {
+            @Override public void onClick(View v) {
+                int value = Integer.parseInt(viewHolder.txtProductQuantity.getText().toString());
+                viewHolder.txtProductQuantity.setText(String.valueOf(value + 1));
+            }
+        });
+
+        viewHolder.btnMinus.setOnClickListener(new View.OnClickListener() {
+            @Override public void onClick(View v) {
+                int value = Integer.parseInt(viewHolder.txtProductQuantity.getText().toString());
+                if (value > 0) {
+                    viewHolder.txtProductQuantity.setText(String.valueOf(value - 1));
+                }
+            }
+        });
     }
 
     @Override
