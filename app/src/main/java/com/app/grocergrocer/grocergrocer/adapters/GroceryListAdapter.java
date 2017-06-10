@@ -1,4 +1,4 @@
-package com.app.grocergrocer.grocergrocer.adapter;
+package com.app.grocergrocer.grocergrocer.adapters;
 
 import android.content.Context;
 import android.content.Intent;

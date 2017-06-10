@@ -12,10 +12,12 @@
     <!-- Screen label -->
     <string name="login">Login</string>
     <string name="signup">Signup</string>
+    <string name="account_details">Account Details</string>
     <string name="explore">Explore</string>
     <string name="categories">Categories</string>
     <string name="shopping_cart">Shopping Cart</string>
     <string name="grocery_list">Grocery List</string>
+    <string name="order_history">Order History</string>
 
     <!-- Navigation bar -->
     <string name="nav_user">Grocer Grocer</string>
@@ -42,6 +44,20 @@
     <!-- Search Activity -->
     <string name="no_results_found">No results found</string>
 
+    <!-- Account Details Activity -->
+    <string name="personal_information">Personal Information</string>
+    <string name="update_password">Update Password</string>
+
+    <!-- Shopping Cart Activity -->
+    <string name="your_order">Your Order</string>
+    <string name="delivery_fee">Delivery Fee</string>
+    <string name="total">Total</string>
+    <string name="checkout">Checkout</string>
+    <string name="fee">₱ 1000.00</string>
+
+    <!-- Order History -->
+    <string name="status_closed">CLOSED</string>
+
     <!-- Product Activity -->
     <string name="about_the_product">About the Product</string>
     <string name="product_description">
@@ -67,6 +83,8 @@
     <string name="btn_minus">—</string>
     <string name="btn_save">Save</string>
     <string name="btn_cancel">Cancel</string>
+    <string name="btn_update_profile">Update Profile</string>
+    <string name="btn_update_password">Update Password</string>
 
     <!-- Prompts -->
     <string name="prompt_authenticating">Authenticating&#8230;</string>
@@ -82,10 +100,15 @@
     <!-- Hints -->
     <string name="hint_name">Name</string>
     <string name="hint_email">Email</string>
+    <string name="hint_mobile_no">Mobile Number</string>
     <string name="hint_password">Password</string>
+    <string name="hint_current_password">Current Password</string>
+    <string name="hint_new_password">New Password</string>
+    <string name="hint_retype_new_password">Retype New Password</string>
     <string name="search_hint">Search</string>
 
     <!-- Others -->
     <string name="zero">0</string>
     <string name="peso_sign">₱</string>
+    <string name="arrow_down">Arrow Down</string>
 </resources>

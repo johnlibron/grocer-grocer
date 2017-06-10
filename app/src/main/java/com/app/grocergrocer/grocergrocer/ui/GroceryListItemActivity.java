@@ -10,7 +10,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import com.app.grocergrocer.grocergrocer.R;
-import com.app.grocergrocer.grocergrocer.adapter.GroceryListItemAdapter;
+import com.app.grocergrocer.grocergrocer.adapters.GroceryListItemAdapter;
 
 public class GroceryListItemActivity extends AppCompatActivity {
 

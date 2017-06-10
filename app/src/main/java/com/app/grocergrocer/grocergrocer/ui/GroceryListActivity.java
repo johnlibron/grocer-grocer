@@ -21,9 +21,10 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 
 import com.app.grocergrocer.grocergrocer.R;
-import com.app.grocergrocer.grocergrocer.adapter.GroceryListAdapter;
+import com.app.grocergrocer.grocergrocer.adapters.GroceryListAdapter;
 
 public class GroceryListActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -97,6 +98,16 @@ public class GroceryListActivity extends AppCompatActivity
         navigationView.setNavigationItemSelectedListener(this);
         navigationView.getMenu().getItem(4).setChecked(true);
 
+        View headerView = navigationView.getHeaderView(0);
+        LinearLayout header = (LinearLayout) headerView.findViewById(R.id.header_view);
+        header.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(v.getContext(), AccountDetailsActivity.class);
+                startActivity(intent);
+            }
+        });
+
         RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
         RecyclerView.Adapter adapter = new GroceryListAdapter();
@@ -152,7 +163,8 @@ public class GroceryListActivity extends AppCompatActivity
             intent = new Intent(this, ShoppingCartActivity.class);
             startActivity(intent);
         } else if (id == R.id.nav_order_history) {
-
+            intent = new Intent(this, OrderHistoryActivity.class);
+            startActivity(intent);
         } else if (id == R.id.nav_grocery_list) {
             // grocery list
         } else if (id == R.id.nav_logout) {

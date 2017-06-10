@@ -1,4 +1,4 @@
-package com.app.grocergrocer.grocergrocer.adapter;
+package com.app.grocergrocer.grocergrocer.adapters;
 
 import android.content.Context;
 import android.content.Intent;
@@ -14,7 +14,7 @@ import com.app.grocergrocer.grocergrocer.R;
 import com.app.grocergrocer.grocergrocer.ui.ProductActivity;
 import com.facebook.drawee.view.SimpleDraweeView;
 
-public class ShoppingCartAdapter extends RecyclerView.Adapter<ShoppingCartAdapter.ViewHolder> {
+public class GroceryListItemAdapter extends RecyclerView.Adapter<GroceryListItemAdapter.ViewHolder> {
 
     private String[] productNames = {
             "Colgate Max Clean Smart Foam",
@@ -104,13 +104,13 @@ public class ShoppingCartAdapter extends RecyclerView.Adapter<ShoppingCartAdapte
     }
 
     @Override
-    public ShoppingCartAdapter.ViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
-        View v = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.card_shopping_cart, viewGroup, false);
+    public GroceryListItemAdapter.ViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
+        View v = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.card_grocery_list_item, viewGroup, false);
         return new ViewHolder(v);
     }
 
     @Override
-    public void onBindViewHolder(final ShoppingCartAdapter.ViewHolder viewHolder, int i) {
+    public void onBindViewHolder(final GroceryListItemAdapter.ViewHolder viewHolder, int i) {
         Uri uri = Uri.parse(productImages[i]);
         viewHolder.sdvProductImage.setImageURI(uri);
         viewHolder.txtProductName.setText(productNames[i]);

@@ -31,13 +31,136 @@
 
         </android.support.design.widget.AppBarLayout>
 
-        <android.support.v7.widget.RecyclerView
-            android:id="@+id/recycler_view"
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_margin="3dp"
-            android:scrollbars="none"
-            app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+            app:layout_behavior="@string/appbar_scrolling_view_behavior"  >
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/recycler_view"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scrollbars="vertical"
+                android:layout_above="@+id/checkout"/>
+
+            <LinearLayout
+                android:id="@id/checkout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:orientation="vertical"
+                android:background="@color/white">
+
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height=".5dp"
+                    android:background="@color/colorDivider" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginEnd="15dp">
+
+                    <TextView
+                        android:id="@+id/your_order"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/your_order"
+                        android:textColor="@color/colorPrimaryText"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/your_order_fee"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/fee"
+                        android:layout_toEndOf="@+id/your_order"
+                        android:textAlignment="textEnd"
+                        android:layout_alignParentEnd="true"
+                        android:textColor="@color/colorPrimaryText"
+                        android:textSize="12sp"
+                        android:textStyle="bold" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginEnd="15dp"
+                    android:layout_marginTop="5dp">
+
+                    <TextView
+                        android:id="@+id/delivery"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/delivery_fee"
+                        android:textColor="@color/colorPrimaryText"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/delivery_fee"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/fee"
+                        android:layout_toEndOf="@+id/delivery"
+                        android:textAlignment="textEnd"
+                        android:layout_alignParentEnd="true"
+                        android:textColor="@color/colorPrimaryText"
+                        android:textSize="12sp"
+                        android:textStyle="bold" />
+
+                </RelativeLayout>
+
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height=".5dp"
+                    android:layout_margin="5dp"
+                    android:background="@color/colorDivider" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginEnd="15dp">
+
+                    <TextView
+                        android:id="@+id/total"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/total"
+                        android:textColor="@color/colorPrimaryText"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/total_fee"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_toEndOf="@+id/total"
+                        android:text="@string/fee"
+                        android:textAlignment="textEnd"
+                        android:layout_alignParentEnd="true"
+                        android:textColor="@color/colorPrimaryText"
+                        android:textSize="12sp"
+                        android:textStyle="bold" />
+
+                </RelativeLayout>
+
+                <android.support.v7.widget.AppCompatButton
+                    android:id="@+id/btn_checkout"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/btn_red_bg"
+                    android:text="@string/checkout"
+                    android:textColor="@color/white"
+                    android:textSize="12sp"/>
+
+            </LinearLayout>
+
+        </RelativeLayout>
 
     </android.support.design.widget.CoordinatorLayout>
 

@@ -55,7 +55,7 @@
         <View
             android:id="@+id/border_top_button"
             android:layout_width="fill_parent"
-            android:layout_height="1dp"
+            android:layout_height=".5dp"
             android:layout_above="@+id/add_to_cart"
             android:background="@color/colorDivider" />
 

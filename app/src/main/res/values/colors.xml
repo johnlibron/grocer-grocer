@@ -24,7 +24,10 @@
     <color name="white70">#b3ffffff</color>
     <color name="white87">#aaffffff</color>
     <color name="red">#FF0000</color>
-    <color name="red500">#F44336</color>
     <color name="gray80">#CCCCCC</color>
     <color name="yellowAccent700">#ffd600</color>
+
+    <color name="redPrimaryDark">#d32f2f</color>
+    <color name="redPrimary">#f44336</color>
+
 </resources>

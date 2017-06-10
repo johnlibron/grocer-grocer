@@ -47,6 +47,11 @@
             android:screenOrientation="portrait"/>
 
         <activity
+            android:name=".ui.AccountDetailsActivity"
+            android:label="@string/account_details"
+            android:screenOrientation="portrait"/>
+
+        <activity
             android:name=".ui.ExploreActivity"
             android:label="@string/explore"
             android:screenOrientation="portrait"/>
@@ -77,6 +82,11 @@
         <activity
             android:name=".ui.GroceryListItemActivity"
             android:screenOrientation="portrait"/>
+
+        <activity
+            android:name=".ui.OrderHistoryActivity"
+            android:label="@string/order_history"
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>

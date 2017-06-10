@@ -12,9 +12,11 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.LinearLayout;
 
 import com.app.grocergrocer.grocergrocer.R;
-import com.app.grocergrocer.grocergrocer.adapter.ExploreAdapter;
+import com.app.grocergrocer.grocergrocer.adapters.ExploreAdapter;
 import com.facebook.drawee.backends.pipeline.Fresco;
 
 public class ExploreActivity extends AppCompatActivity
@@ -38,6 +40,16 @@ public class ExploreActivity extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
         navigationView.getMenu().getItem(0).setChecked(true);
+
+        View headerView = navigationView.getHeaderView(0);
+        LinearLayout header = (LinearLayout) headerView.findViewById(R.id.header_view);
+        header.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(v.getContext(), AccountDetailsActivity.class);
+                startActivity(intent);
+            }
+        });
 
         RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
         RecyclerView.LayoutManager layoutManager = new GridLayoutManager(this, 2);
@@ -93,7 +105,8 @@ public class ExploreActivity extends AppCompatActivity
             intent = new Intent(this, ShoppingCartActivity.class);
             startActivity(intent);
         } else if (id == R.id.nav_order_history) {
-
+            intent = new Intent(this, OrderHistoryActivity.class);
+            startActivity(intent);
         } else if (id == R.id.nav_grocery_list) {
             intent = new Intent(this, GroceryListActivity.class);
             startActivity(intent);

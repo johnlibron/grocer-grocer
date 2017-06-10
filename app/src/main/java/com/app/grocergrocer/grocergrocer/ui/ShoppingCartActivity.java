@@ -12,9 +12,11 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.LinearLayout;
 
 import com.app.grocergrocer.grocergrocer.R;
-import com.app.grocergrocer.grocergrocer.adapter.ShoppingCartAdapter;
+import com.app.grocergrocer.grocergrocer.adapters.ShoppingCartAdapter;
 
 public class ShoppingCartActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -37,6 +39,16 @@ public class ShoppingCartActivity extends AppCompatActivity
         navigationView.setNavigationItemSelectedListener(this);
         navigationView.getMenu().getItem(2).setChecked(true);
 
+        View headerView = navigationView.getHeaderView(0);
+        LinearLayout header = (LinearLayout) headerView.findViewById(R.id.header_view);
+        header.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(v.getContext(), AccountDetailsActivity.class);
+                startActivity(intent);
+            }
+        });
+
         RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
         RecyclerView.Adapter adapter = new ShoppingCartAdapter();
@@ -57,7 +69,7 @@ public class ShoppingCartActivity extends AppCompatActivity
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.activity_shopping_cart, menu);
+        getMenuInflater().inflate(R.menu.search, menu);
         return true;
     }
 
@@ -86,9 +98,10 @@ public class ShoppingCartActivity extends AppCompatActivity
             intent = new Intent(this, CategoriesActivity.class);
             startActivity(intent);
         } else if (id == R.id.nav_shopping_cart) {
-
+            // shopping cart
         } else if (id == R.id.nav_order_history) {
-
+            intent = new Intent(this, OrderHistoryActivity.class);
+            startActivity(intent);
         } else if (id == R.id.nav_grocery_list) {
             intent = new Intent(this, GroceryListActivity.class);
             startActivity(intent);
