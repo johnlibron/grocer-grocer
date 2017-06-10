@@ -23,7 +23,7 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:background="@null"
-            android:hint="@string/search_hint"
+            android:hint="@string/hint_search"
             android:imeOptions="actionSearch"
             android:inputType="text"
             android:textColor="@color/white"

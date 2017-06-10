@@ -87,7 +87,7 @@
             android:layout_alignParentEnd="true"
             android:layout_alignParentBottom="true"
             android:background="@drawable/btn_bg"
-            android:text="@string/btn_add"
+            android:text="@string/btn_plus"
             android:textColor="@color/colorPrimary"
             android:textSize="25sp"/>
 

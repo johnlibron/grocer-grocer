@@ -87,6 +87,16 @@
             android:name=".ui.OrderHistoryActivity"
             android:label="@string/order_history"
             android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".ui.BillingAddressActivity"
+            android:label="@string/billing_address"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".ui.FormBillingAddressActivity"
+            android:label="@string/form_billing_address"
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>

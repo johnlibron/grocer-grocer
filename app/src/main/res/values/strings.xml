@@ -18,6 +18,8 @@
     <string name="shopping_cart">Shopping Cart</string>
     <string name="grocery_list">Grocery List</string>
     <string name="order_history">Order History</string>
+    <string name="billing_address">Billing Address</string>
+    <string name="form_billing_address">Form Billing Address</string>
 
     <!-- Navigation bar -->
     <string name="nav_user">Grocer Grocer</string>
@@ -52,11 +54,14 @@
     <string name="your_order">Your Order</string>
     <string name="delivery_fee">Delivery Fee</string>
     <string name="total">Total</string>
-    <string name="checkout">Checkout</string>
     <string name="fee">₱ 1000.00</string>
 
-    <!-- Order History -->
+    <!-- Order History Activity -->
     <string name="status_closed">CLOSED</string>
+
+    <!-- Billing Address Activity -->
+    <string name="mobile_number">Mobile No:</string>
+    <string name="address_specific_instructions">Address Specific Instructions:</string>
 
     <!-- Product Activity -->
     <string name="about_the_product">About the Product</string>
@@ -74,17 +79,22 @@
 
     <!-- Dialogs -->
     <string name="dialog_create_grocery_list_title">Create a new list</string>
+    <string name="dialog_add_different_address_title">Add another address</string>
 
     <!-- Buttons -->
     <string name="btn_add_to_cart">Add To Cart</string>
     <string name="btn_login">Login</string>
     <string name="btn_save_to_list">Save To List</string>
-    <string name="btn_add">+</string>
+    <string name="btn_plus">+</string>
     <string name="btn_minus">—</string>
     <string name="btn_save">Save</string>
     <string name="btn_cancel">Cancel</string>
     <string name="btn_update_profile">Update Profile</string>
     <string name="btn_update_password">Update Password</string>
+    <string name="btn_add_different_address">Add Different Address</string>
+    <string name="btn_checkout">Checkout</string>
+    <string name="btn_delivery_timing">Next: Delivery Timing</string>
+    <string name="btn_add">Add</string>
 
     <!-- Prompts -->
     <string name="prompt_authenticating">Authenticating&#8230;</string>
@@ -105,10 +115,17 @@
     <string name="hint_current_password">Current Password</string>
     <string name="hint_new_password">New Password</string>
     <string name="hint_retype_new_password">Retype New Password</string>
-    <string name="search_hint">Search</string>
+    <string name="hint_search">Search</string>
+    <string name="hint_complete_address">Complete Address</string>
+    <string name="hint_complete_address_full">(House Number, Building and Street Name)</string>
+    <string name="hint_province">Province</string>
+    <string name="hint_city_municipality">City/Municipality</string>
+    <string name="hint_barangay">Barangay</string>
+    <string name="hint_address_specific_instructions">Address Specific Instructions</string>
 
     <!-- Others -->
     <string name="zero">0</string>
     <string name="peso_sign">₱</string>
     <string name="arrow_down">Arrow Down</string>
+    <string name="dash_separator"> - </string>
 </resources>
