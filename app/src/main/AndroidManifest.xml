@@ -89,13 +89,22 @@
             android:screenOrientation="portrait" />
 
         <activity
-            android:name=".ui.BillingAddressActivity"
-            android:label="@string/billing_address"
+            android:name=".ui.DeliveryAddressActivity"
+            android:label="@string/delivery_address"
             android:screenOrientation="portrait" />
 
         <activity
-            android:name=".ui.FormBillingAddressActivity"
-            android:label="@string/form_billing_address"
+            android:name=".ui.AddDeliveryAddressActivity"
+            android:label="@string/add_delivery_address"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".ui.DeliveryTimeActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".ui.ReviewOrderActivity"
+            android:label="@string/review_order"
             android:screenOrientation="portrait" />
     </application>
 

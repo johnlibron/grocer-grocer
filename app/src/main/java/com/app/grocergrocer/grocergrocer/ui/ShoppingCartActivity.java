@@ -122,7 +122,7 @@ public class ShoppingCartActivity extends AppCompatActivity
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.btn_checkout:
-                Intent intent = new Intent(this, BillingAddressActivity.class);
+                Intent intent = new Intent(this, DeliveryAddressActivity.class);
                 startActivity(intent);
                 break;
         }

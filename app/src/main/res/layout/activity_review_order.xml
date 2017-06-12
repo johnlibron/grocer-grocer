@@ -1,0 +1,434 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:fitsSystemWindows="true"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.MainActivity">
+
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/AppTheme.AppBarOverlay">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorPrimary"
+            app:popupTheme="@style/AppTheme.PopupOverlay" />
+
+    </android.support.design.widget.AppBarLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <ScrollView
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white"
+            android:scrollbars="vertical"
+            android:layout_above="@+id/btn_place_order">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/delivery_information"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="10dp"
+                    android:text="@string/delivery_information"
+                    android:textColor="@color/colorSecondaryText"
+                    android:textSize="15sp" />
+
+                <RelativeLayout
+                    android:id="@+id/delivery_address_section"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingEnd="15dp"
+                    android:paddingStart="15dp"
+                    android:paddingTop="15dp">
+
+                    <TextView
+                        android:id="@+id/delivery_address"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="5dp"
+                        android:layout_toStartOf="@+id/edit_delivery_address"
+                        android:text="@string/delivery_address"
+                        android:textColor="@color/colorPrimaryText"
+                        android:textSize="13sp" />
+
+                    <TextView
+                        android:id="@+id/text_name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/delivery_address"
+                        android:text="John James Libron"
+                        android:textColor="@color/colorSecondaryText"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/text_complete_address"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/text_name"
+                        android:text="Corazon Vill. 2, San Isidro Talisay City, Cebu"
+                        android:textColor="@color/colorSecondaryText"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/text_province"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/text_complete_address"
+                        android:text="Cebu"
+                        android:textColor="@color/colorSecondaryText"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/text_separator_1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/text_complete_address"
+                        android:layout_marginEnd="5dp"
+                        android:layout_marginStart="5dp"
+                        android:layout_toEndOf="@+id/text_province"
+                        android:text="@string/dash_separator"
+                        android:textColor="@color/colorSecondaryText"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/text_city_municipality"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/text_complete_address"
+                        android:layout_toEndOf="@+id/text_separator_1"
+                        android:text="Talisay City"
+                        android:textColor="@color/colorSecondaryText"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/text_separator_2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/text_complete_address"
+                        android:layout_marginEnd="5dp"
+                        android:layout_marginStart="5dp"
+                        android:layout_toEndOf="@+id/text_city_municipality"
+                        android:text="@string/dash_separator"
+                        android:textColor="@color/colorSecondaryText"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/text_barangay"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/text_complete_address"
+                        android:layout_toEndOf="@+id/text_separator_2"
+                        android:text="San Isidro"
+                        android:textColor="@color/colorSecondaryText"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/text_mobile_no_title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/text_province"
+                        android:layout_marginEnd="10dp"
+                        android:text="@string/mobile_number"
+                        android:textColor="@color/colorSecondaryText"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/text_mobile_no"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/text_province"
+                        android:layout_toEndOf="@+id/text_mobile_no_title"
+                        android:text="0917128835"
+                        android:textColor="@color/colorSecondaryText"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/text_address_specific_instructions_title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/text_mobile_no_title"
+                        android:text="@string/address_specific_instructions"
+                        android:textColor="@color/colorSecondaryText"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/text_address_specific_instructions"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/text_address_specific_instructions_title"
+                        android:text="Call this number when you arrive. Please doorbell only once so you cannot wake my baby."
+                        android:textColor="@color/colorSecondaryText"
+                        android:textSize="12sp" />
+
+                    <ImageView
+                        android:id="@+id/edit_delivery_address"
+                        android:layout_width="15dp"
+                        android:layout_height="15dp"
+                        android:layout_alignParentEnd="true"
+                        android:contentDescription="@string/edit"
+                        android:src="@mipmap/ic_create_black" />
+
+                    <View
+                        android:layout_width="fill_parent"
+                        android:layout_height=".5dp"
+                        android:layout_below="@+id/text_address_specific_instructions"
+                        android:layout_marginTop="10dp"
+                        android:background="@color/colorDivider" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/delivery_time_section"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="15dp"
+                    android:paddingStart="15dp"
+                    android:paddingEnd="15dp">
+
+                    <TextView
+                        android:id="@+id/delivery_time"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_toStartOf="@+id/edit_delivery_time"
+                        android:layout_marginBottom="5dp"
+                        android:text="@string/delivery_time"
+                        android:textColor="@color/colorPrimaryText"
+                        android:textSize="13sp"/>
+
+                    <TextView
+                        android:id="@+id/text_delivery_time"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/delivery_time"
+                        android:textSize="12sp"
+                        android:textColor="@color/colorSecondaryText"
+                        android:text="Fri Jun 16, 2017, 7am - 9am"/>
+
+                    <ImageView
+                        android:id="@+id/edit_delivery_time"
+                        android:layout_width="15dp"
+                        android:layout_height="15dp"
+                        android:src="@mipmap/ic_create_black"
+                        android:layout_alignParentEnd="true"
+                        android:contentDescription="@string/edit"/>
+
+                    <View
+                        android:layout_width="fill_parent"
+                        android:layout_height=".5dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_below="@+id/text_delivery_time"
+                        android:background="@color/colorDivider"/>
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/payment_section"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="15dp"
+                    android:paddingStart="15dp"
+                    android:paddingEnd="15dp">
+
+                    <TextView
+                        android:id="@+id/payment"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="5dp"
+                        android:text="@string/payment"
+                        android:textColor="@color/colorPrimaryText"
+                        android:textSize="13sp"/>
+
+                    <TextView
+                        android:id="@+id/text_payment"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/payment"
+                        android:textSize="12sp"
+                        android:textColor="@color/colorSecondaryText"
+                        android:text="Cash On Delivery"/>
+
+                    <View
+                        android:layout_width="fill_parent"
+                        android:layout_height=".5dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_below="@+id/text_payment"
+                        android:background="@color/colorDivider"/>
+
+                </RelativeLayout>
+
+                <TextView
+                    android:id="@+id/payment_information"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/payment_information"
+                    android:textColor="@color/colorSecondaryText"
+                    android:textSize="15sp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginBottom="10dp"
+                    android:layout_gravity="center"/>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginEnd="15dp">
+
+                    <TextView
+                        android:id="@+id/your_order"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/your_order"
+                        android:textColor="@color/colorPrimaryText"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/your_order_fee"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/fee"
+                        android:layout_toEndOf="@+id/your_order"
+                        android:textAlignment="textEnd"
+                        android:layout_alignParentEnd="true"
+                        android:textColor="@color/colorPrimaryText"
+                        android:textSize="12sp"
+                        android:textStyle="bold" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginEnd="15dp"
+                    android:layout_marginTop="5dp">
+
+                    <TextView
+                        android:id="@+id/delivery"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/delivery_fee"
+                        android:textColor="@color/colorPrimaryText"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/delivery_fee"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/fee"
+                        android:layout_toEndOf="@+id/delivery"
+                        android:textAlignment="textEnd"
+                        android:layout_alignParentEnd="true"
+                        android:textColor="@color/colorPrimaryText"
+                        android:textSize="12sp"
+                        android:textStyle="bold" />
+
+                </RelativeLayout>
+
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height=".5dp"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginEnd="15dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:background="@color/colorDivider" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginEnd="15dp">
+
+                    <TextView
+                        android:id="@+id/total"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/total"
+                        android:textColor="@color/colorPrimaryText"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/total_fee"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_toEndOf="@+id/total"
+                        android:text="@string/fee"
+                        android:textAlignment="textEnd"
+                        android:layout_alignParentEnd="true"
+                        android:textColor="@color/colorPrimaryText"
+                        android:textSize="12sp"
+                        android:textStyle="bold" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/items_ordered_section"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp">
+
+                    <TextView
+                        android:id="@+id/items_ordered"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_toStartOf="@+id/edit_items_ordered"
+                        android:text="@string/items_ordered"
+                        android:textColor="@color/colorSecondaryText"
+                        android:textSize="15sp"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginBottom="10dp"
+                        android:layout_marginStart="15dp"
+                        android:gravity="center"/>
+
+                    <ImageView
+                        android:id="@+id/edit_items_ordered"
+                        android:layout_width="15dp"
+                        android:layout_height="15dp"
+                        android:src="@mipmap/ic_create_black"
+                        android:layout_alignParentEnd="true"
+                        android:contentDescription="@string/edit"
+                        android:layout_marginTop="20dp"/>
+
+                </RelativeLayout>
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/recycler_view_items_ordered"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"/>
+
+            </LinearLayout>
+
+        </ScrollView>
+
+        <android.support.v7.widget.AppCompatButton
+            android:id="@+id/btn_place_order"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/btn_red_bg"
+            android:layout_alignParentBottom="true"
+            android:text="@string/btn_place_order"
+            android:textColor="@color/white"
+            android:textSize="12sp"/>
+
+    </RelativeLayout>
+
+</android.support.design.widget.CoordinatorLayout>

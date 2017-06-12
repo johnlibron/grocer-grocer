@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android" xmlns:flexible="http://schemas.android.com/apk/res-auto">
+    <item android:drawable="@color/colorPrimary" flexible:state_date_regular="true" />
+    <item android:drawable="@drawable/calendar_day_today" flexible:state_date_today="true" />
+    <item android:drawable="@drawable/calendar_day_selected" flexible:state_date_selected="true" />
+</selector>

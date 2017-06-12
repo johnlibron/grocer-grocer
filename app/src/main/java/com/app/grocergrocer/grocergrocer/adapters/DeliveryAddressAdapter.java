@@ -9,7 +9,7 @@ import android.widget.TextView;
 
 import com.app.grocergrocer.grocergrocer.R;
 
-public class BillingAddressAdapter extends RecyclerView.Adapter<BillingAddressAdapter.ViewHolder> {
+public class DeliveryAddressAdapter extends RecyclerView.Adapter<DeliveryAddressAdapter.ViewHolder> {
 
     private String[] names = {
             "John James Libron",
@@ -129,13 +129,13 @@ public class BillingAddressAdapter extends RecyclerView.Adapter<BillingAddressAd
     }
 
     @Override
-    public BillingAddressAdapter.ViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
-        View v = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.card_billing_address, viewGroup, false);
+    public DeliveryAddressAdapter.ViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
+        View v = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.card_delivery_address, viewGroup, false);
         return new ViewHolder(v);
     }
 
     @Override
-    public void onBindViewHolder(final BillingAddressAdapter.ViewHolder viewHolder, int i) {
+    public void onBindViewHolder(final DeliveryAddressAdapter.ViewHolder viewHolder, int i) {
         viewHolder.txtName.setText(names[i]);
         viewHolder.txtCompleteAddress.setText(completeAddress[i]);
         viewHolder.txtProvince.setText(provinces[i]);
