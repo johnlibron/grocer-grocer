@@ -24,6 +24,7 @@
     <string name="add_delivery_address">Add Delivery Address</string>
     <string name="delivery_time">Delivery Time</string>
     <string name="review_order">Review Your Order</string>
+    <string name="order_confirmation">Order Confirmation</string>
 
     <!-- Navigation bar -->
     <string name="nav_user">Grocer Grocer</string>
@@ -73,6 +74,10 @@
     <string name="items_ordered">Items Ordered</string>
     <string name="payment">Payment</string>
 
+    <!-- Order Confirmation Activity -->
+    <string name="sent_sms_code">We have sent you an SMS with a code to this number: 0917 123 4567.</string>
+    <string name="enter_activation_code">To complete your phone number verification, please enter the 6-digit activation code.</string>
+
     <!-- Product Activity -->
     <string name="about_the_product">About the Product</string>
     <string name="product_description">
@@ -107,6 +112,9 @@
     <string name="btn_review_order">Review Your Order</string>
     <string name="btn_order_confirmation">Order Confirmation</string>
     <string name="btn_place_order">Place Your Order</string>
+    <string name="btn_submit">Submit</string>
+    <string name="btn_resend_code">Resend Code</string>
+    <string name="btn_keep_shopping">Keep Shopping</string>
 
     <!-- Prompts -->
     <string name="prompt_authenticating">Authenticating&#8230;</string>
@@ -134,6 +142,7 @@
     <string name="hint_city_municipality">City/Municipality</string>
     <string name="hint_barangay">Barangay</string>
     <string name="hint_address_specific_instructions">Address Specific Instructions</string>
+    <string name="hint_activation_code">Activation Code</string>
 
     <!-- Others -->
     <string name="zero">0</string>

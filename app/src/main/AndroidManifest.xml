@@ -106,6 +106,15 @@
             android:name=".ui.ReviewOrderActivity"
             android:label="@string/review_order"
             android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".ui.OrderConfirmationActivity"
+            android:label="@string/order_confirmation"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".ui.OrderCompleteActivity"
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>

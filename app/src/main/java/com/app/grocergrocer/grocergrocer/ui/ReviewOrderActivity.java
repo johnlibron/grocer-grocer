@@ -9,6 +9,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.RelativeLayout;
 
 import com.app.grocergrocer.grocergrocer.R;
@@ -28,10 +29,6 @@ public class ReviewOrderActivity extends AppCompatActivity implements View.OnCli
         RelativeLayout deliveryTimeSection = (RelativeLayout) findViewById(R.id.delivery_time_section);
         RelativeLayout itemsOrderedSection = (RelativeLayout) findViewById(R.id.items_ordered_section);
 
-        deliveryAddressSection.setOnClickListener(this);
-        deliveryTimeSection.setOnClickListener(this);
-        itemsOrderedSection.setOnClickListener(this);
-
         RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recycler_view_items_ordered);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
         RecyclerView.Adapter adapter = new ReviewOrderAdapter();
@@ -40,6 +37,13 @@ public class ReviewOrderActivity extends AppCompatActivity implements View.OnCli
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setAdapter(adapter);
+
+        Button btnPlaceOrder = (Button) findViewById(R.id.btn_place_order);
+
+        btnPlaceOrder.setOnClickListener(this);
+        deliveryAddressSection.setOnClickListener(this);
+        deliveryTimeSection.setOnClickListener(this);
+        itemsOrderedSection.setOnClickListener(this);
     }
 
     @Override
@@ -89,6 +93,9 @@ public class ReviewOrderActivity extends AppCompatActivity implements View.OnCli
                 intent = new Intent(this, ShoppingCartActivity.class);
                 startActivity(intent);
                 break;
+            case R.id.btn_place_order:
+                intent = new Intent(this, OrderConfirmationActivity.class);
+                startActivity(intent);
         }
     }
 }
