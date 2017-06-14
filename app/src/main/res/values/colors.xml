@@ -30,4 +30,6 @@
     <color name="redPrimaryDark">#d32f2f</color>
     <color name="redPrimary">#f44336</color>
 
+    <color name="grey_placeholder">#eeeeee</color>
+
 </resources>

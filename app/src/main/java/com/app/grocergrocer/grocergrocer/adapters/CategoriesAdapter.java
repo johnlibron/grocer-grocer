@@ -10,38 +10,21 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.app.grocergrocer.grocergrocer.R;
+import com.app.grocergrocer.grocergrocer.models.Category;
 import com.app.grocergrocer.grocergrocer.ui.CategoryActivity;
 import com.facebook.drawee.view.SimpleDraweeView;
 
+import java.util.List;
+
 public class CategoriesAdapter extends RecyclerView.Adapter<CategoriesAdapter.ViewHolder> {
 
-    private String[] categoryNames = {
-            "Toothpaste",
-            "Eggs",
-            "Drinks",
-            "Soap",
-            "Ice cream",
-            "Junk foods",
-            "Cheese",
-            "Water",
-            "Vegetables",
-            "Meat"
-    };
+    private List<Category> mCategoryList;
 
-    private String[] categoryImages = {
-            "http://i.imgur.com/8lu1aR9.png",
-            "http://i.imgur.com/ErQsnTA.png",
-            "http://i.imgur.com/6AKLMix.png",
-            "http://i.imgur.com/zFMnLNY.png",
-            "http://i.imgur.com/3aInE2Y.png",
-            "http://i.imgur.com/HKPro8L.png",
-            "http://i.imgur.com/zb2ZZhN.png",
-            "http://i.imgur.com/do90fSj.png",
-            "http://i.imgur.com/i3JYPxQ.png",
-            "http://i.imgur.com/ShVxwd2.png"
-    };
+    public CategoriesAdapter(List<Category> categoryList) {
+        mCategoryList = categoryList;
+    }
 
-    class ViewHolder extends RecyclerView.ViewHolder{
+    public class ViewHolder extends RecyclerView.ViewHolder{
 
         SimpleDraweeView sdvCategoryImage;
         TextView txtCategoryName;
@@ -56,7 +39,7 @@ public class CategoriesAdapter extends RecyclerView.Adapter<CategoriesAdapter.Vi
                     int position = getAdapterPosition();
                     Context context = v.getContext();
                     Intent intent = new Intent(context, CategoryActivity.class);
-                    intent.putExtra("categoryName", categoryNames[position]);
+                    intent.putExtra("categoryName", mCategoryList.get(position).getCategoryName());
                     context.startActivity(intent);
                 }
             });
@@ -64,20 +47,22 @@ public class CategoriesAdapter extends RecyclerView.Adapter<CategoriesAdapter.Vi
     }
 
     @Override
-    public CategoriesAdapter.ViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
+    public CategoriesAdapter.ViewHolder onCreateViewHolder(ViewGroup viewGroup, int viewType) {
         View v = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.card_categories, viewGroup, false);
         return new ViewHolder(v);
     }
 
     @Override
-    public void onBindViewHolder(CategoriesAdapter.ViewHolder viewHolder, int i) {
-        Uri uri = Uri.parse(categoryImages[i]);
+    public void onBindViewHolder(CategoriesAdapter.ViewHolder viewHolder, int position) {
+        final Category category = mCategoryList.get(position);
+
+        Uri uri = Uri.parse(category.getCategoryImage());
         viewHolder.sdvCategoryImage.setImageURI(uri);
-        viewHolder.txtCategoryName.setText(categoryNames[i]);
+        viewHolder.txtCategoryName.setText(category.getCategoryName());
     }
 
     @Override
     public int getItemCount() {
-        return categoryNames.length;
+        return null == mCategoryList ? 0 : mCategoryList.size();
     }
 }

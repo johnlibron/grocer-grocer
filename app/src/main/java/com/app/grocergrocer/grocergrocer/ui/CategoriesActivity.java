@@ -17,6 +17,10 @@ import android.widget.LinearLayout;
 
 import com.app.grocergrocer.grocergrocer.R;
 import com.app.grocergrocer.grocergrocer.adapters.CategoriesAdapter;
+import com.app.grocergrocer.grocergrocer.models.Category;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class CategoriesActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -49,9 +53,21 @@ public class CategoriesActivity extends AppCompatActivity
             }
         });
 
+        List<Category> categoryList = new ArrayList<>();
+        categoryList.add(new Category("http://i.imgur.com/8lu1aR9.png", "Toothpaste"));
+        categoryList.add(new Category("http://i.imgur.com/ErQsnTA.png", "Eggs"));
+        categoryList.add(new Category("http://i.imgur.com/6AKLMix.png", "Drinks"));
+        categoryList.add(new Category("http://i.imgur.com/zFMnLNY.png", "Soap"));
+        categoryList.add(new Category("http://i.imgur.com/3aInE2Y.png", "Ice cream"));
+        categoryList.add(new Category("http://i.imgur.com/HKPro8L.png", "Junk foods"));
+        categoryList.add(new Category("http://i.imgur.com/zb2ZZhN.png", "Cheese"));
+        categoryList.add(new Category("http://i.imgur.com/do90fSj.png", "Water"));
+        categoryList.add(new Category("http://i.imgur.com/i3JYPxQ.png", "Vegetables"));
+        categoryList.add(new Category("http://i.imgur.com/ShVxwd2.png", "Meat"));
+
         RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
         RecyclerView.LayoutManager layoutManager = new GridLayoutManager(this, 2);
-        RecyclerView.Adapter adapter = new CategoriesAdapter();
+        RecyclerView.Adapter adapter = new CategoriesAdapter(categoryList);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setAdapter(adapter);

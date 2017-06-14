@@ -85,7 +85,7 @@ public class ShoppingCartAdapter extends RecyclerView.Adapter<ShoppingCartAdapte
             txtProductMeasurement = (TextView)itemView.findViewById(R.id.product_measurement);
             txtProductPrice = (TextView)itemView.findViewById(R.id.product_price);
             txtProductQuantity = (TextView) itemView.findViewById(R.id.product_quantity);
-            btnAdd = (Button) itemView.findViewById(R.id.btn_add);
+            btnAdd = (Button) itemView.findViewById(R.id.btn_plus);
             btnMinus = (Button) itemView.findViewById(R.id.btn_minus);
 
             itemView.setOnClickListener(new View.OnClickListener() {
