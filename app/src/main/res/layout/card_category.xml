@@ -4,11 +4,14 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/card_view"
     android:layout_width="match_parent"
-    android:layout_height="270dp"
-    android:layout_margin="2dp"
-    app:cardCornerRadius="2dp"
-    app:contentPadding="0dp"
-    app:cardElevation="1dp">
+    android:layout_height="wrap_content"
+    android:layout_marginTop="3dp"
+    android:layout_marginBottom="3dp"
+    android:layout_marginStart="5dp"
+    android:layout_marginEnd="5dp"
+    app:cardElevation="0dp"
+    app:cardCornerRadius="0dp"
+    app:contentPadding="5dp">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -16,58 +19,103 @@
 
         <com.facebook.drawee.view.SimpleDraweeView
             android:id="@+id/product_image"
-            android:layout_width="match_parent"
-            android:layout_height="100dp"
-            android:layout_margin="10dp"
-            app:actualImageScaleType="fitCenter"/>
+            android:layout_width="80dp"
+            android:layout_height="70dp"
+            android:layout_alignParentTop="true"
+            android:layout_marginEnd="10dp"
+            app:placeholderImage="@drawable/grey_square"
+            app:actualImageScaleType="fitCenter" />
 
         <TextView
             android:id="@+id/product_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/product_image"
-            android:layout_marginEnd="10dp"
-            android:layout_marginStart="10dp"
-            android:textColor="@color/black70"
+            android:layout_toEndOf="@+id/product_image"
+            android:textColor="@color/colorPrimaryText"
             android:textSize="12sp" />
 
         <TextView
             android:id="@+id/product_measurement"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_above="@+id/product_price"
-            android:layout_marginStart="10dp"
-            android:layout_marginBottom="5dp"
-            android:textColor="@color/black54"
+            android:layout_below="@+id/product_name"
+            android:layout_toEndOf="@+id/product_image"
+            android:textColor="@color/colorSecondaryText"
             android:textSize="12sp" />
 
         <TextView
             android:id="@+id/product_price"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_above="@+id/border_top_button"
-            android:layout_marginBottom="5dp"
-            android:layout_marginStart="10dp"
-            android:textColor="@color/black87"
-            android:textSize="13sp"
-            android:textStyle="bold" />
+            android:layout_below="@+id/product_measurement"
+            android:layout_marginTop="10dp"
+            android:layout_toEndOf="@+id/product_image"
+            android:textColor="@color/redPrimary"
+            android:textSize="13sp" />
 
-        <View
-            android:id="@+id/border_top_button"
-            android:layout_width="fill_parent"
-            android:layout_height="1dp"
-            android:layout_above="@+id/add_to_cart"
-            android:background="#c0c0c0" />
-
-        <Button
-            android:id="@+id/add_to_cart"
-            android:layout_width="match_parent"
+        <TextView
+            android:id="@+id/product_original_price"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:background="@drawable/btn_bg"
-            android:text="@string/btn_add_to_cart"
-            android:textColor="@color/colorPrimary"
-            android:textSize="12sp" />
+            android:layout_below="@+id/product_price"
+            android:layout_toEndOf="@+id/product_image"
+            android:layout_marginEnd="5dp"
+            android:textColor="@color/colorSecondaryText"
+            android:textSize="10sp"/>
+
+        <TextView
+            android:id="@+id/product_less_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/product_price"
+            android:layout_toEndOf="@+id/product_original_price"
+            android:textColor="@color/redPrimary"
+            android:textSize="10sp"/>
+
+        <ImageButton
+            android:id="@+id/btn_minus"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginTop="2dp"
+            android:layout_below="@+id/product_original_price"
+            android:layout_toEndOf="@+id/product_image"
+            android:background="@drawable/btn_grey_bg"
+            android:contentDescription="@string/btn_minus"
+            android:src="@mipmap/ic_remove_black" />
+
+        <TextView
+            android:id="@+id/product_quantity"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginTop="2dp"
+            android:layout_below="@+id/product_original_price"
+            android:layout_toEndOf="@+id/btn_minus"
+            android:gravity="center"
+            android:text="@string/zero"
+            android:textColor="@color/black"
+            android:textSize="14sp" />
+
+        <ImageButton
+            android:id="@+id/btn_plus"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginTop="2dp"
+            android:layout_below="@+id/product_original_price"
+            android:layout_toEndOf="@+id/product_quantity"
+            android:background="@drawable/btn_grey_bg"
+            android:contentDescription="@string/btn_plus"
+            android:src="@mipmap/ic_add_black" />
+
+        <ImageView
+            android:id="@+id/btn_save_grocery_list"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="5dp"
+            android:layout_alignParentEnd="true"
+            android:layout_below="@+id/product_original_price"
+            android:src="@mipmap/ic_assignment_black"
+            android:contentDescription="@string/edit"/>
 
     </RelativeLayout>
 

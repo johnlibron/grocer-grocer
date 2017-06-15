@@ -2,6 +2,7 @@ package com.app.grocergrocer.grocergrocer.ui;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -106,7 +107,7 @@ public class CategoriesActivity extends AppCompatActivity
 
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
-    public boolean onNavigationItemSelected(MenuItem item) {
+    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         int id = item.getItemId();
         Intent intent;
 
@@ -125,7 +126,8 @@ public class CategoriesActivity extends AppCompatActivity
             intent = new Intent(this, GroceryListActivity.class);
             startActivity(intent);
         } else if (id == R.id.nav_logout) {
-
+            intent = new Intent(this, MainActivity.class);
+            startActivity(intent);
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

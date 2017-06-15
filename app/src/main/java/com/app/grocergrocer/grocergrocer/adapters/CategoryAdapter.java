@@ -1,80 +1,38 @@
 package com.app.grocergrocer.grocergrocer.adapters;
 
-import android.content.Context;
-import android.content.Intent;
 import android.net.Uri;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import com.app.grocergrocer.grocergrocer.R;
-import com.app.grocergrocer.grocergrocer.ui.ProductActivity;
+import com.app.grocergrocer.grocergrocer.models.Product;
 import com.facebook.drawee.view.SimpleDraweeView;
+
+import java.util.List;
 
 public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.ViewHolder> {
 
-    private String[] productNames = {
-            "Colgate Max Clean Smart Foam",
-            "Eggs",
-            "Coca-Cola Can",
-            "Palmolive Naturals Soap Calming Pleasure",
-            "Cornetto Classic Vanilla",
-            "Piattos Cheese",
-            "Eden Original",
-            "Wilkins Pure Purified Water",
-            "Cabbage",
-            "Whole Chicken"
-    };
+    private List<Product> mProductList;
 
-    private String[] productMeasurements = {
-            "1 box",
-            "6 pcs.",
-            "1 can",
-            "1 box",
-            "1 pc.",
-            "1 pc.",
-            "1 box",
-            "1 gal.",
-            "1 pc.",
-            "1 pc."
-    };
+    public CategoryAdapter(List<Product> productList) {
+        mProductList = productList;
+    }
 
-    private String[] productPrices = {
-            "87.00",
-            "50.00",
-            "35.00",
-            "23.00",
-            "25.00",
-            "28.00",
-            "30.00",
-            "69.00",
-            "16.00",
-            "398.00"
-    };
-
-    private String[] productImages = {
-            "http://i.imgur.com/8lu1aR9.png",
-            "http://i.imgur.com/ErQsnTA.png",
-            "http://i.imgur.com/6AKLMix.png",
-            "http://i.imgur.com/zFMnLNY.png",
-            "http://i.imgur.com/3aInE2Y.png",
-            "http://i.imgur.com/HKPro8L.png",
-            "http://i.imgur.com/zb2ZZhN.png",
-            "http://i.imgur.com/do90fSj.png",
-            "http://i.imgur.com/i3JYPxQ.png",
-            "http://i.imgur.com/ShVxwd2.png"
-    };
-
-    class ViewHolder extends RecyclerView.ViewHolder{
+    public class ViewHolder extends RecyclerView.ViewHolder{
 
         SimpleDraweeView sdvProductImage;
         TextView txtProductName;
         TextView txtProductMeasurement;
         TextView txtProductPrice;
-        Button btnAddToCart;
+        TextView txtProductOriginalPrice;
+        TextView txtProductLessPrice;
+        TextView txtProductQuantity;
+        ImageButton btnPlus;
+        ImageButton btnMinus;
 
         ViewHolder(View itemView) {
             super(itemView);
@@ -82,41 +40,57 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.ViewHo
             txtProductName = (TextView)itemView.findViewById(R.id.product_name);
             txtProductMeasurement = (TextView)itemView.findViewById(R.id.product_measurement);
             txtProductPrice = (TextView)itemView.findViewById(R.id.product_price);
-            btnAddToCart = (Button) itemView.findViewById(R.id.add_to_cart);
-
-            itemView.setOnClickListener(new View.OnClickListener() {
-                @Override public void onClick(View v) {
-                    int position = getAdapterPosition();
-                    Context context = v.getContext();
-                    Intent intent = new Intent(context, ProductActivity.class);
-                    intent.putExtra("productImage", productImages[position]);
-                    intent.putExtra("productName", productNames[position]);
-                    intent.putExtra("productMeasurement", productMeasurements[position]);
-                    intent.putExtra("productPrice", productPrices[position]);
-                    context.startActivity(intent);
-                }
-            });
+            txtProductOriginalPrice = (TextView)itemView.findViewById(R.id.product_original_price);
+            txtProductLessPrice = (TextView)itemView.findViewById(R.id.product_less_price);
+            txtProductQuantity = (TextView)itemView.findViewById(R.id.product_quantity);
+            btnPlus = (ImageButton) itemView.findViewById(R.id.btn_plus);
+            btnMinus = (ImageButton) itemView.findViewById(R.id.btn_minus);
         }
     }
 
     @Override
-    public CategoryAdapter.ViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
+    public CategoryAdapter.ViewHolder onCreateViewHolder(ViewGroup viewGroup, int viewType) {
         View v = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.card_category, viewGroup, false);
-        return new CategoryAdapter.ViewHolder(v);
+        return new ViewHolder(v);
     }
 
     @Override
-    public void onBindViewHolder(final CategoryAdapter.ViewHolder viewHolder, int i) {
-        Uri uri = Uri.parse(productImages[i]);
+    public void onBindViewHolder(final CategoryAdapter.ViewHolder viewHolder, int position) {
+        final Product product = mProductList.get(position);
+
+        Uri uri = Uri.parse(product.getProductImage());
         viewHolder.sdvProductImage.setImageURI(uri);
-        viewHolder.txtProductName.setText(productNames[i]);
-        viewHolder.txtProductMeasurement.setText(productMeasurements[i]);
-        String productPrice = "₱ " + productPrices[i];
-        viewHolder.txtProductPrice.setText(productPrice);
+        viewHolder.txtProductName.setText(product.getProductName());
+        viewHolder.txtProductMeasurement.setText(product.getProductMeasurement());
+        viewHolder.txtProductPrice.setText(product.getProductPrice());
+
+        if (null != product.getProductOriginalPrice() && null != product.getProductLessPrice()) {
+            viewHolder.txtProductOriginalPrice.setText(product.getProductOriginalPrice());
+            viewHolder.txtProductLessPrice.setText(product.getProductLessPrice());
+        } else {
+            viewHolder.txtProductOriginalPrice.setVisibility(View.GONE);
+            viewHolder.txtProductLessPrice.setVisibility(View.GONE);
+        }
+
+        viewHolder.btnPlus.setOnClickListener(new View.OnClickListener() {
+            @Override public void onClick(View v) {
+                int value = Integer.parseInt(viewHolder.txtProductQuantity.getText().toString());
+                viewHolder.txtProductQuantity.setText(String.valueOf(value + 1));
+            }
+        });
+
+        viewHolder.btnMinus.setOnClickListener(new View.OnClickListener() {
+            @Override public void onClick(View v) {
+                int value = Integer.parseInt(viewHolder.txtProductQuantity.getText().toString());
+                if (value > 0) {
+                    viewHolder.txtProductQuantity.setText(String.valueOf(value - 1));
+                }
+            }
+        });
     }
 
     @Override
     public int getItemCount() {
-        return productNames.length;
+        return null == mProductList ? 0 : mProductList.size();
     }
 }

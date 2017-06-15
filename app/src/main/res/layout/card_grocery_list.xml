@@ -5,82 +5,117 @@
     android:id="@+id/card_view"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="2dp"
-    app:cardElevation="1dp">
+    android:layout_marginTop="3dp"
+    android:layout_marginBottom="3dp"
+    android:layout_marginStart="5dp"
+    android:layout_marginEnd="5dp"
+    app:cardElevation="0dp"
+    app:cardCornerRadius="0dp"
+    app:contentPadding="5dp">
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="5dp">
+        android:layout_height="wrap_content">
 
         <com.facebook.drawee.view.SimpleDraweeView
-            android:id="@+id/list_image_1"
-            android:layout_width="70dp"
-            android:layout_height="60dp"
-            android:layout_margin="2dp"
-            app:actualImageScaleType="fitCenter"/>
-
-        <com.facebook.drawee.view.SimpleDraweeView
-            android:id="@+id/list_image_2"
-            android:layout_width="70dp"
-            android:layout_height="60dp"
-            android:layout_margin="2dp"
-            android:layout_toEndOf="@+id/list_image_1"
-            app:actualImageScaleType="fitCenter"/>
-
-        <com.facebook.drawee.view.SimpleDraweeView
-            android:id="@+id/list_image_3"
-            android:layout_width="70dp"
-            android:layout_height="60dp"
-            android:layout_margin="2dp"
-            android:layout_below="@+id/list_image_1"
-            app:actualImageScaleType="fitCenter"/>
-
-        <com.facebook.drawee.view.SimpleDraweeView
-            android:id="@+id/list_image_4"
-            android:layout_width="70dp"
-            android:layout_height="60dp"
-            android:layout_margin="2dp"
-            android:layout_below="@+id/list_image_2"
-            android:layout_toEndOf="@+id/list_image_3"
-            app:actualImageScaleType="fitCenter"/>
+            android:id="@+id/product_image"
+            android:layout_width="80dp"
+            android:layout_height="70dp"
+            android:layout_alignParentTop="true"
+            android:layout_marginEnd="10dp"
+            app:placeholderImage="@drawable/grey_square"
+            app:actualImageScaleType="fitCenter" />
 
         <TextView
-            android:id="@+id/list_name"
+            android:id="@+id/product_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:layout_marginStart="10dp"
-            android:layout_marginEnd="5dp"
-            android:layout_marginBottom="5dp"
-            android:textColor="@color/black70"
-            android:textSize="15sp"
-            android:layout_toEndOf="@+id/list_image_2"/>
-
-        <TextView
-            android:id="@+id/list_description"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/list_name"
-            android:layout_toEndOf="@+id/list_image_2"
-            android:layout_marginTop="5dp"
-            android:layout_marginStart="10dp"
-            android:layout_marginEnd="5dp"
-            android:layout_marginBottom="5dp"
-            android:textColor="@color/black54"
+            android:layout_toEndOf="@+id/product_image"
+            android:textColor="@color/colorPrimaryText"
             android:textSize="12sp" />
 
         <TextView
-            android:id="@+id/total_products"
+            android:id="@+id/product_measurement"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/list_description"
-            android:layout_toEndOf="@+id/list_image_2"
-            android:layout_marginTop="5dp"
-            android:layout_marginStart="10dp"
+            android:layout_below="@+id/product_name"
+            android:layout_toEndOf="@+id/product_image"
+            android:textColor="@color/colorSecondaryText"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/product_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/product_measurement"
+            android:layout_marginTop="10dp"
+            android:layout_toEndOf="@+id/product_image"
+            android:textColor="@color/redPrimary"
+            android:textSize="13sp" />
+
+        <TextView
+            android:id="@+id/product_original_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/product_price"
+            android:layout_toEndOf="@+id/product_image"
             android:layout_marginEnd="5dp"
-            android:textColor="@color/black54"
-            android:textSize="13sp"/>
+            android:textColor="@color/colorSecondaryText"
+            android:textSize="10sp"/>
+
+        <TextView
+            android:id="@+id/product_less_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/product_price"
+            android:layout_toEndOf="@+id/product_original_price"
+            android:textColor="@color/redPrimary"
+            android:textSize="10sp"/>
+
+        <ImageButton
+            android:id="@+id/btn_minus"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginTop="2dp"
+            android:layout_below="@+id/product_original_price"
+            android:layout_toEndOf="@+id/product_image"
+            android:background="@drawable/btn_grey_bg"
+            android:contentDescription="@string/btn_minus"
+            android:src="@mipmap/ic_remove_black" />
+
+        <TextView
+            android:id="@+id/product_quantity"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginTop="2dp"
+            android:layout_below="@+id/product_original_price"
+            android:layout_toEndOf="@+id/btn_minus"
+            android:gravity="center"
+            android:text="@string/zero"
+            android:textColor="@color/black"
+            android:textSize="14sp" />
+
+        <ImageButton
+            android:id="@+id/btn_plus"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginTop="2dp"
+            android:layout_below="@+id/product_original_price"
+            android:layout_toEndOf="@+id/product_quantity"
+            android:background="@drawable/btn_grey_bg"
+            android:contentDescription="@string/btn_plus"
+            android:src="@mipmap/ic_add_black" />
+
+        <ImageView
+            android:id="@+id/btn_save_grocery_list"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="5dp"
+            android:layout_alignParentEnd="true"
+            android:layout_below="@+id/product_original_price"
+            android:src="@mipmap/ic_assignment_black"
+            android:contentDescription="@string/edit"/>
 
     </RelativeLayout>
 

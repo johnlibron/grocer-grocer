@@ -11,7 +11,6 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.app.grocergrocer.grocergrocer.R;
-import com.app.grocergrocer.grocergrocer.ui.ProductActivity;
 import com.facebook.drawee.view.SimpleDraweeView;
 
 public class ShoppingCartAdapter extends RecyclerView.Adapter<ShoppingCartAdapter.ViewHolder> {
@@ -87,19 +86,6 @@ public class ShoppingCartAdapter extends RecyclerView.Adapter<ShoppingCartAdapte
             txtProductQuantity = (TextView) itemView.findViewById(R.id.product_quantity);
             btnAdd = (Button) itemView.findViewById(R.id.btn_plus);
             btnMinus = (Button) itemView.findViewById(R.id.btn_minus);
-
-            itemView.setOnClickListener(new View.OnClickListener() {
-                @Override public void onClick(View v) {
-                    int position = getAdapterPosition();
-                    Context context = v.getContext();
-                    Intent intent = new Intent(context, ProductActivity.class);
-                    intent.putExtra("productImage", productImages[position]);
-                    intent.putExtra("productName", productNames[position]);
-                    intent.putExtra("productMeasurement", productMeasurements[position]);
-                    intent.putExtra("productPrice", productPrices[position]);
-                    context.startActivity(intent);
-                }
-            });
         }
     }
 
