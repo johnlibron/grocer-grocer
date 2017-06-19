@@ -108,7 +108,7 @@
                         android:textSize="12sp" />
 
                     <TextView
-                        android:id="@+id/text_city_municipality"
+                        android:id="@+id/text_city"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/text_complete_address"
@@ -124,7 +124,7 @@
                         android:layout_below="@+id/text_complete_address"
                         android:layout_marginEnd="5dp"
                         android:layout_marginStart="5dp"
-                        android:layout_toEndOf="@+id/text_city_municipality"
+                        android:layout_toEndOf="@+id/text_city"
                         android:text="@string/dash_separator"
                         android:textColor="@color/colorSecondaryText"
                         android:textSize="12sp" />
@@ -183,7 +183,7 @@
                         android:layout_height="15dp"
                         android:layout_alignParentEnd="true"
                         android:contentDescription="@string/edit"
-                        android:src="@mipmap/ic_create_black" />
+                        android:src="@mipmap/ic_create_gray" />
 
                     <View
                         android:layout_width="fill_parent"
@@ -225,7 +225,7 @@
                         android:id="@+id/edit_delivery_time"
                         android:layout_width="15dp"
                         android:layout_height="15dp"
-                        android:src="@mipmap/ic_create_black"
+                        android:src="@mipmap/ic_create_gray"
                         android:layout_alignParentEnd="true"
                         android:contentDescription="@string/edit"/>
 
@@ -403,7 +403,7 @@
                         android:id="@+id/edit_items_ordered"
                         android:layout_width="15dp"
                         android:layout_height="15dp"
-                        android:src="@mipmap/ic_create_black"
+                        android:src="@mipmap/ic_create_gray"
                         android:layout_alignParentEnd="true"
                         android:contentDescription="@string/edit"
                         android:layout_marginTop="20dp"/>

@@ -3,7 +3,7 @@ package com.app.grocergrocer.grocergrocer.ui;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
@@ -43,7 +43,7 @@ public class CategoryActivity extends AppCompatActivity {
         productList.add(new Product("http://i.imgur.com/ShVxwd2.png", "Whole Chicken", "1 pc.", "₱ 398.00", "₱ 500.00", "-40%"));
 
         RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
-        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
+        RecyclerView.LayoutManager layoutManager = new GridLayoutManager(this, 2);
         RecyclerView.Adapter adapter = new CategoryAdapter(productList);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(layoutManager);

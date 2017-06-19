@@ -13,6 +13,10 @@ import android.widget.Button;
 
 import com.app.grocergrocer.grocergrocer.R;
 import com.app.grocergrocer.grocergrocer.adapters.DeliveryAddressAdapter;
+import com.app.grocergrocer.grocergrocer.models.DeliveryAddress;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class DeliveryAddressActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -24,9 +28,22 @@ public class DeliveryAddressActivity extends AppCompatActivity implements View.O
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
+        List<DeliveryAddress> deliveryAddressList = new ArrayList<>();
+
+        deliveryAddressList.add(new DeliveryAddress("John James Libron", "Corazon Vill. 2, San Isidro Talisay City, Cebu", "Cebu", "Talisay City", "San Isidro", "0923127129", "Call this number when you arrived."));
+        deliveryAddressList.add(new DeliveryAddress("Julrecha Lumambas", "Corazon Vill. 2, San Isidro Talisay City, Cebu", "Cebu", "Talisay City", "San Isidro", "0923127129", "Call this number when you arrived."));
+        deliveryAddressList.add(new DeliveryAddress("Maria Reynalen Quijada", "Corazon Vill. 2, San Isidro Talisay City, Cebu", "Cebu", "Talisay City", "San Isidro", "0923127129", "Call this number when you arrived."));
+        deliveryAddressList.add(new DeliveryAddress("Virgil John Lomocso", "Corazon Vill. 2, San Isidro Talisay City, Cebu", "Cebu", "Talisay City", "San Isidro", "0923127129", "Call this number when you arrived."));
+        deliveryAddressList.add(new DeliveryAddress("Michael Libosada", "Corazon Vill. 2, San Isidro Talisay City, Cebu", "Cebu", "Talisay City", "San Isidro", "0923127129", "Call this number when you arrived."));
+        deliveryAddressList.add(new DeliveryAddress("Jean Paul Ybanez", "Corazon Vill. 2, San Isidro Talisay City, Cebu", "Cebu", "Talisay City", "San Isidro", "0923127129", "Call this number when you arrived."));
+        deliveryAddressList.add(new DeliveryAddress("Daniel Jared Yap", "Corazon Vill. 2, San Isidro Talisay City, Cebu", "Cebu", "Talisay City", "San Isidro", "0923127129", "Call this number when you arrived."));
+        deliveryAddressList.add(new DeliveryAddress("Artis Bulawit", "Corazon Vill. 2, San Isidro Talisay City, Cebu", "Cebu", "Talisay City", "San Isidro", "0923127129", "Call this number when you arrived."));
+        deliveryAddressList.add(new DeliveryAddress("Rey Dakay", "Corazon Vill. 2, San Isidro Talisay City, Cebu", "Cebu", "Talisay City", "San Isidro", "0923127129", "Call this number when you arrived."));
+        deliveryAddressList.add(new DeliveryAddress("Christina Debuayan", "Corazon Vill. 2, San Isidro Talisay City, Cebu", "Cebu", "Talisay City", "San Isidro", "0923127129", "Call this number when you arrived."));
+
         RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
-        RecyclerView.Adapter adapter = new DeliveryAddressAdapter();
+        RecyclerView.Adapter adapter = new DeliveryAddressAdapter(deliveryAddressList);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setAdapter(adapter);

@@ -10,18 +10,18 @@ import java.util.List;
  */
 public class ExpandableGroup<T extends Parcelable> implements Parcelable {
 
-    private String orderName;
+    private String orderNo;
     private String orderDate;
     private List<T> items;
 
-    public ExpandableGroup(String orderName, String orderDate, List<T> items) {
-        this.orderName = orderName;
+    public ExpandableGroup(String orderNo, String orderDate, List<T> items) {
+        this.orderNo = orderNo;
         this.orderDate = orderDate;
         this.items = items;
     }
 
-    public String getOrderName() {
-        return orderName;
+    public String getOrderNo() {
+        return orderNo;
     }
 
     public String getOrderDate() {
@@ -37,7 +37,7 @@ public class ExpandableGroup<T extends Parcelable> implements Parcelable {
     }
 
     protected ExpandableGroup(Parcel in) {
-        orderName = in.readString();
+        orderNo = in.readString();
         orderDate = in.readString();
         byte hasItems = in.readByte();
         int size = in.readInt();
@@ -57,7 +57,7 @@ public class ExpandableGroup<T extends Parcelable> implements Parcelable {
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
-        dest.writeString(orderName);
+        dest.writeString(orderNo);
         dest.writeString(orderDate);
         if (items == null) {
             dest.writeByte((byte) (0x00));

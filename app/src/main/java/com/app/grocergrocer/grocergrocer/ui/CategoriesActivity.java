@@ -13,8 +13,6 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.LinearLayout;
 
 import com.app.grocergrocer.grocergrocer.R;
 import com.app.grocergrocer.grocergrocer.adapters.CategoriesAdapter;
@@ -43,16 +41,6 @@ public class CategoriesActivity extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
         navigationView.getMenu().getItem(1).setChecked(true);
-
-        View headerView = navigationView.getHeaderView(0);
-        LinearLayout header = (LinearLayout) headerView.findViewById(R.id.header_view);
-        header.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(v.getContext(), AccountDetailsActivity.class);
-                startActivity(intent);
-            }
-        });
 
         List<Category> categoryList = new ArrayList<>();
         categoryList.add(new Category("http://i.imgur.com/8lu1aR9.png", "Toothpaste"));
@@ -124,6 +112,9 @@ public class CategoriesActivity extends AppCompatActivity
             startActivity(intent);
         } else if (id == R.id.nav_grocery_list) {
             intent = new Intent(this, GroceryListActivity.class);
+            startActivity(intent);
+        } else if (id == R.id.nav_my_account) {
+            intent = new Intent(this, MyAccountActivity.class);
             startActivity(intent);
         } else if (id == R.id.nav_logout) {
             intent = new Intent(this, MainActivity.class);

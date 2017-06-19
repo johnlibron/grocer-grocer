@@ -5,7 +5,6 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.app.grocergrocer.grocergrocer.R;
-import com.app.grocergrocer.grocergrocer.api.ExpandableRecyclerView.viewholders.ChildViewHolder;
 import com.facebook.drawee.view.SimpleDraweeView;
 
 public class ProductViewHolder extends ChildViewHolder {

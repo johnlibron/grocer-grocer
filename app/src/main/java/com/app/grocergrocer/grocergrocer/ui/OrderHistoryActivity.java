@@ -2,6 +2,7 @@ package com.app.grocergrocer.grocergrocer.ui;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -13,13 +14,11 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.LinearLayout;
 
 import com.app.grocergrocer.grocergrocer.R;
 import com.app.grocergrocer.grocergrocer.adapters.OrderHistoryAdapter;
 
-import static com.app.grocergrocer.grocergrocer.api.GenerateData.makeOrders;
+import static com.app.grocergrocer.grocergrocer.api.GenerateData.orders;
 
 public class OrderHistoryActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
@@ -43,16 +42,6 @@ public class OrderHistoryActivity extends AppCompatActivity implements Navigatio
         navigationView.setNavigationItemSelectedListener(this);
         navigationView.getMenu().getItem(3).setChecked(true);
 
-        View headerView = navigationView.getHeaderView(0);
-        LinearLayout header = (LinearLayout) headerView.findViewById(R.id.header_view);
-        header.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(v.getContext(), AccountDetailsActivity.class);
-                startActivity(intent);
-            }
-        });
-
         RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
 
@@ -64,9 +53,11 @@ public class OrderHistoryActivity extends AppCompatActivity implements Navigatio
             ((DefaultItemAnimator) animator).setSupportsChangeAnimations(false);
         }
 
-        adapter = new OrderHistoryAdapter(makeOrders());
+        adapter = new OrderHistoryAdapter(orders());
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setAdapter(adapter);
+
+        this.expandOrderHistory();
     }
 
     @Override
@@ -93,7 +84,7 @@ public class OrderHistoryActivity extends AppCompatActivity implements Navigatio
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.search, menu);
+        getMenuInflater().inflate(R.menu.main, menu);
         return true;
     }
 
@@ -101,12 +92,12 @@ public class OrderHistoryActivity extends AppCompatActivity implements Navigatio
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
 
-        if (id == R.id.action_search) {
-            for (int i = 0; i < adapter.getGroups().size(); i++) {
-                if (!adapter.isGroupExpanded(adapter.getGroups().get(i))) {
-                    adapter.toggleGroup(adapter.getGroups().get(i));
-                }
-            }
+        if (id == R.id.action_shopping_cart) {
+            Intent intent = new Intent(this, ShoppingCartActivity.class);
+            startActivity(intent);
+        } else if (id == R.id.action_search) {
+            Intent intent = new Intent(this, SearchActivity.class);
+            startActivity(intent);
         }
 
         return super.onOptionsItemSelected(item);
@@ -114,7 +105,7 @@ public class OrderHistoryActivity extends AppCompatActivity implements Navigatio
 
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
-    public boolean onNavigationItemSelected(MenuItem item) {
+    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         int id = item.getItemId();
         Intent intent;
 
@@ -132,12 +123,32 @@ public class OrderHistoryActivity extends AppCompatActivity implements Navigatio
         } else if (id == R.id.nav_grocery_list) {
             intent = new Intent(this, GroceryListActivity.class);
             startActivity(intent);
+        } else if (id == R.id.nav_my_account) {
+            intent = new Intent(this, MyAccountActivity.class);
+            startActivity(intent);
         } else if (id == R.id.nav_logout) {
-
+            intent = new Intent(this, MainActivity.class);
+            startActivity(intent);
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    private void expandOrderHistory() {
+        for (int i = 0; i < adapter.getGroups().size(); i++) {
+            if (!adapter.isGroupExpanded(adapter.getGroups().get(i))) {
+                adapter.toggleGroup(adapter.getGroups().get(i));
+            }
+        }
+    }
+
+    private void collapseOrderHistory() {
+        for (int i = 0; i < adapter.getGroups().size(); i++) {
+            if (adapter.isGroupExpanded(adapter.getGroups().get(i))) {
+                adapter.toggleGroup(adapter.getGroups().get(i));
+            }
+        }
     }
 }

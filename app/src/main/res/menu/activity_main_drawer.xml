@@ -5,27 +5,31 @@
         <item
             android:id="@+id/nav_explore"
             android:title="@string/nav_explore"
-            android:icon="@mipmap/ic_explore_black" />
+            android:icon="@mipmap/ic_explore_gray" />
         <item
             android:id="@+id/nav_categories"
             android:title="@string/nav_categories"
-            android:icon="@mipmap/ic_folder_black" />
+            android:icon="@mipmap/ic_folder_gray" />
         <item
             android:id="@+id/nav_shopping_cart"
             android:title="@string/nav_shopping_cart"
-            android:icon="@mipmap/ic_shopping_cart_black" />
+            android:icon="@mipmap/ic_shopping_cart_gray" />
         <item
             android:id="@+id/nav_order_history"
             android:title="@string/nav_order_history"
-            android:icon="@mipmap/ic_history_black" />
+            android:icon="@mipmap/ic_history_gray" />
         <item
             android:id="@+id/nav_grocery_list"
             android:title="@string/nav_grocery_list"
-            android:icon="@mipmap/ic_list_black" />
+            android:icon="@mipmap/ic_assignment_gray" />
+        <item
+            android:id="@+id/nav_my_account"
+            android:title="@string/nav_my_account"
+            android:icon="@mipmap/ic_account_circle_gray" />
         <item
             android:id="@+id/nav_logout"
             android:title="@string/nav_logout"
-            android:icon="@mipmap/ic_exit_to_app_black" />
+            android:icon="@mipmap/ic_exit_to_app_gray" />
     </group>
 
 </menu>

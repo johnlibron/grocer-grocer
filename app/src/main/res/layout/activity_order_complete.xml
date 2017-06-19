@@ -1,83 +1,110 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:scrollbars="vertical"
-    android:background="@color/white"
     app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="vertical"
+        android:background="@color/white"
+        android:layout_above="@+id/order_complete_buttons">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="20dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="10dp"
+                android:text="ORDER CONFIRMATION"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:textColor="@color/colorPrimaryText"
+                android:gravity="center" />
+
+            <ImageView
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_gravity="center_horizontal"
+                android:src="@mipmap/green_sign_check"
+                android:layout_marginBottom="20dp"
+                android:contentDescription="@string/app_name" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:text="Thank you, John James Libron!"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                android:textColor="@color/colorPrimaryText"
+                android:gravity="center" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
+                android:text="Your order has been placed."
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:textColor="@color/colorPrimaryText"
+                android:gravity="center" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Your order will be sent very soon. For any questions or futher information about your order, please contact our customer support."
+                android:textSize="12sp"
+                android:textStyle="bold"
+                android:textColor="@color/colorSecondaryText"
+                android:gravity="center" />
+
+        </LinearLayout>
+
+    </ScrollView>
+
     <LinearLayout
+        android:id="@id/order_complete_buttons"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="20dp"
-        android:orientation="vertical">
+        android:layout_alignParentBottom="true"
+        android:orientation="vertical"
+        android:background="@color/white">
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="10dp"
-            android:text="ORDER CONFIRMATION"
-            android:textSize="16sp"
-            android:textStyle="bold"
-            android:textColor="@color/colorPrimaryText"
-            android:gravity="center" />
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height=".5dp"
+            android:background="@color/colorDivider" />
 
-        <ImageView
-            android:layout_width="150dp"
-            android:layout_height="150dp"
-            android:layout_gravity="center_horizontal"
-            android:src="@mipmap/green_sign_check"
-            android:layout_marginBottom="20dp"
-            android:contentDescription="@string/app_name" />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="5dp"
-            android:text="Thank you, John James Libron!"
-            android:textSize="15sp"
-            android:textStyle="bold"
-            android:textColor="@color/colorPrimaryText"
-            android:gravity="center" />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"
-            android:text="Your order has been placed."
-            android:textSize="14sp"
-            android:textStyle="bold"
-            android:textColor="@color/colorPrimaryText"
-            android:gravity="center" />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"
-            android:text="Your order will be sent very soon. For any questions or futher information about your order, please contact our customer support."
-            android:textSize="12sp"
-            android:textStyle="bold"
-            android:textColor="@color/colorSecondaryText"
-            android:gravity="center" />
-
-        <Button
+        <android.support.v7.widget.AppCompatButton
             android:id="@+id/btn_review_order"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="5dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
             android:background="@drawable/btn_red_bg"
             android:text="@string/btn_review_order"
             android:textColor="@color/white"
             android:textSize="15sp"/>
 
-        <Button
+        <android.support.v7.widget.AppCompatButton
             android:id="@+id/btn_keep_shopping"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
             android:background="@drawable/btn_red_bg"
             android:text="@string/btn_keep_shopping"
             android:textColor="@color/white"
@@ -85,4 +112,4 @@
 
     </LinearLayout>
 
-</ScrollView>
+</RelativeLayout>

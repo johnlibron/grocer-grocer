@@ -7,75 +7,35 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import com.app.grocergrocer.grocergrocer.R;
+import com.app.grocergrocer.grocergrocer.models.Product;
+import com.app.grocergrocer.grocergrocer.ui.ProductActivity;
 import com.facebook.drawee.view.SimpleDraweeView;
+
+import java.util.List;
 
 public class ShoppingCartAdapter extends RecyclerView.Adapter<ShoppingCartAdapter.ViewHolder> {
 
-    private String[] productNames = {
-            "Colgate Max Clean Smart Foam",
-            "Eggs",
-            "Coca-Cola Can",
-            "Palmolive Naturals Soap Calming Pleasure",
-            "Cornetto Classic Vanilla",
-            "Piattos Cheese",
-            "Eden Original",
-            "Wilkins Pure Purified Water",
-            "Cabbage",
-            "Whole Chicken"
-    };
+    private List<Product> mProductList;
 
-    private String[] productMeasurements = {
-            "1 box",
-            "6 pcs.",
-            "1 can",
-            "1 box",
-            "1 pc.",
-            "1 pc.",
-            "1 box",
-            "1 gal.",
-            "1 pc.",
-            "1 pc."
-    };
+    public ShoppingCartAdapter(List<Product> productList) {
+        mProductList = productList;
+    }
 
-    private String[] productPrices = {
-            "87.00",
-            "50.00",
-            "35.00",
-            "23.00",
-            "25.00",
-            "28.00",
-            "30.00",
-            "69.00",
-            "16.00",
-            "398.00"
-    };
-
-    private String[] productImages = {
-            "http://i.imgur.com/8lu1aR9.png",
-            "http://i.imgur.com/ErQsnTA.png",
-            "http://i.imgur.com/6AKLMix.png",
-            "http://i.imgur.com/zFMnLNY.png",
-            "http://i.imgur.com/3aInE2Y.png",
-            "http://i.imgur.com/HKPro8L.png",
-            "http://i.imgur.com/zb2ZZhN.png",
-            "http://i.imgur.com/do90fSj.png",
-            "http://i.imgur.com/i3JYPxQ.png",
-            "http://i.imgur.com/ShVxwd2.png"
-    };
-
-    class ViewHolder extends RecyclerView.ViewHolder{
+    public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
         SimpleDraweeView sdvProductImage;
         TextView txtProductName;
         TextView txtProductMeasurement;
         TextView txtProductPrice;
+        TextView txtProductOriginalPrice;
+        TextView txtProductLessPrice;
         TextView txtProductQuantity;
-        Button btnAdd;
-        Button btnMinus;
+        ImageButton btnPlus;
+        ImageButton btnMinus;
 
         ViewHolder(View itemView) {
             super(itemView);
@@ -83,39 +43,90 @@ public class ShoppingCartAdapter extends RecyclerView.Adapter<ShoppingCartAdapte
             txtProductName = (TextView)itemView.findViewById(R.id.product_name);
             txtProductMeasurement = (TextView)itemView.findViewById(R.id.product_measurement);
             txtProductPrice = (TextView)itemView.findViewById(R.id.product_price);
-            txtProductQuantity = (TextView) itemView.findViewById(R.id.product_quantity);
-            btnAdd = (Button) itemView.findViewById(R.id.btn_plus);
-            btnMinus = (Button) itemView.findViewById(R.id.btn_minus);
+            txtProductOriginalPrice = (TextView)itemView.findViewById(R.id.product_original_price);
+            txtProductLessPrice = (TextView)itemView.findViewById(R.id.product_less_price);
+            txtProductQuantity = (TextView)itemView.findViewById(R.id.product_quantity);
+            btnPlus = (ImageButton) itemView.findViewById(R.id.btn_plus);
+            btnMinus = (ImageButton) itemView.findViewById(R.id.btn_minus);
+
+            sdvProductImage.setOnClickListener(this);
+            txtProductName.setOnClickListener(this);
+            txtProductMeasurement.setOnClickListener(this);
+            txtProductPrice.setOnClickListener(this);
+            txtProductOriginalPrice.setOnClickListener(this);
+            txtProductLessPrice.setOnClickListener(this);
+        }
+
+        @Override
+        public void onClick(View v) {
+            switch (v.getId()) {
+                case R.id.product_image:
+                case R.id.product_name:
+                case R.id.product_measurement:
+                case R.id.product_price:
+                case R.id.product_original_price:
+                case R.id.product_less_price:
+                    int position = getAdapterPosition();
+                    final Product product = mProductList.get(position);
+                    Context context = v.getContext();
+                    Intent intent = new Intent(context, ProductActivity.class);
+                    intent.putExtra("productImage", product.getProductImage());
+                    intent.putExtra("productName", product.getProductName());
+                    intent.putExtra("productMeasurement", product.getProductMeasurement());
+                    intent.putExtra("productPrice", product.getProductPrice());
+                    intent.putExtra("productOriginalPrice", product.getProductOriginalPrice());
+                    intent.putExtra("productLessPrice", product.getProductLessPrice());
+                    context.startActivity(intent);
+                    break;
+            }
         }
     }
 
     @Override
-    public ShoppingCartAdapter.ViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
+    public ShoppingCartAdapter.ViewHolder onCreateViewHolder(ViewGroup viewGroup, int viewType) {
         View v = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.card_shopping_cart, viewGroup, false);
         return new ViewHolder(v);
     }
 
     @Override
-    public void onBindViewHolder(final ShoppingCartAdapter.ViewHolder viewHolder, int i) {
-        Uri uri = Uri.parse(productImages[i]);
-        viewHolder.sdvProductImage.setImageURI(uri);
-        viewHolder.txtProductName.setText(productNames[i]);
-        viewHolder.txtProductMeasurement.setText(productMeasurements[i]);
-        String productPrice = "₱ " + productPrices[i];
-        viewHolder.txtProductPrice.setText(productPrice);
+    public void onBindViewHolder(final ShoppingCartAdapter.ViewHolder viewHolder, int position) {
+        final Product product = mProductList.get(position);
 
-        viewHolder.btnAdd.setOnClickListener(new View.OnClickListener() {
+        Uri uri = Uri.parse(product.getProductImage());
+        viewHolder.sdvProductImage.setImageURI(uri);
+        viewHolder.txtProductName.setText(product.getProductName());
+        viewHolder.txtProductMeasurement.setText(product.getProductMeasurement());
+        viewHolder.txtProductPrice.setText(product.getProductPrice());
+
+        if (null != product.getProductOriginalPrice() && null != product.getProductLessPrice()) {
+            viewHolder.txtProductOriginalPrice.setText(product.getProductOriginalPrice());
+            viewHolder.txtProductLessPrice.setText(product.getProductLessPrice());
+            viewHolder.txtProductOriginalPrice.setPadding( 0, 0, 0, 10);
+            viewHolder.txtProductLessPrice.setPadding( 0, 0, 0, 10);
+        } else {
+            viewHolder.txtProductPrice.setPadding( 0, 0, 0, 10);
+            viewHolder.txtProductOriginalPrice.setVisibility(View.GONE);
+            viewHolder.txtProductLessPrice.setVisibility(View.GONE);
+        }
+
+        viewHolder.btnPlus.setOnClickListener(new View.OnClickListener() {
             @Override public void onClick(View v) {
-                int value = Integer.parseInt(viewHolder.txtProductQuantity.getText().toString());
-                viewHolder.txtProductQuantity.setText(String.valueOf(value + 1));
+                int productQuantity = product.getProductQuantity();
+                if (productQuantity < 10) {
+                    productQuantity += 1;
+                    product.setProductQuantity(productQuantity);
+                    viewHolder.txtProductQuantity.setText(String.valueOf(productQuantity));
+                }
             }
         });
 
         viewHolder.btnMinus.setOnClickListener(new View.OnClickListener() {
             @Override public void onClick(View v) {
-                int value = Integer.parseInt(viewHolder.txtProductQuantity.getText().toString());
-                if (value > 0) {
-                    viewHolder.txtProductQuantity.setText(String.valueOf(value - 1));
+                int productQuantity = product.getProductQuantity();
+                if (productQuantity > 0) {
+                    productQuantity -= 1;
+                    product.setProductQuantity(productQuantity);
+                    viewHolder.txtProductQuantity.setText(String.valueOf(productQuantity));
                 }
             }
         });
@@ -123,6 +134,6 @@ public class ShoppingCartAdapter extends RecyclerView.Adapter<ShoppingCartAdapte
 
     @Override
     public int getItemCount() {
-        return productNames.length;
+        return null == mProductList ? 0 : mProductList.size();
     }
 }

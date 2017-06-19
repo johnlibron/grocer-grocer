@@ -14,12 +14,14 @@
     <!-- Screen label -->
     <string name="login">Login</string>
     <string name="signup">Signup</string>
-    <string name="account_details">Account Details</string>
+    <string name="my_account">My Account</string>
+    <string name="edit_profile">Account Details</string>
     <string name="explore">Explore</string>
     <string name="categories">Categories</string>
     <string name="shopping_cart">Shopping Cart</string>
     <string name="grocery_list">Grocery List</string>
     <string name="order_history">Order History</string>
+    <string name="order_details">Order Details</string>
     <string name="delivery_address">Delivery Address</string>
     <string name="add_delivery_address">Add Delivery Address</string>
     <string name="delivery_time">Delivery Time</string>
@@ -34,6 +36,7 @@
     <string name="nav_shopping_cart">Shopping Cart</string>
     <string name="nav_order_history">Order History</string>
     <string name="nav_grocery_list">Grocery List</string>
+    <string name="nav_my_account">My Account</string>
     <string name="nav_logout">Logout</string>
 
     <!-- Login Activity -->
@@ -115,6 +118,9 @@
     <string name="btn_submit">Submit</string>
     <string name="btn_resend_code">Resend Code</string>
     <string name="btn_keep_shopping">Keep Shopping</string>
+    <string name="btn_edit_profile">Edit Profile</string>
+    <string name="btn_place_new_order">Place New Order</string>
+    <string name="btn_cancel_order">Cancel Order</string>
 
     <!-- Prompts -->
     <string name="prompt_authenticating">Authenticating&#8230;</string>
@@ -150,4 +156,6 @@
     <string name="arrow_down">Arrow Down</string>
     <string name="dash_separator"> - </string>
     <string name="edit">Edit</string>
+    <string name="delete">Delete</string>
+    <string name="account_placeholder">Account Placeholder</string>
 </resources>

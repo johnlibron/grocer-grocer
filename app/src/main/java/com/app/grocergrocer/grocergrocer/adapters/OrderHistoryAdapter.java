@@ -42,6 +42,6 @@ public class OrderHistoryAdapter extends ExpandableRecyclerViewAdapter<OrderView
     @Override
     public void onBindGroupViewHolder(OrderViewHolder holder, int flatPosition, ExpandableGroup group) {
         holder.setOrder(group);
+        holder.setManageOrder(group);
     }
 }
-

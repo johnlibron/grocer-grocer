@@ -95,7 +95,7 @@
             </android.support.design.widget.TextInputLayout>
 
             <android.support.design.widget.TextInputLayout
-                android:id="@+id/text_city_municipality"
+                android:id="@+id/text_city"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 

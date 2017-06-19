@@ -47,8 +47,13 @@
             android:screenOrientation="portrait"/>
 
         <activity
-            android:name=".ui.AccountDetailsActivity"
-            android:label="@string/account_details"
+            android:name=".ui.MyAccountActivity"
+            android:label="@string/my_account"
+            android:screenOrientation="portrait"/>
+
+        <activity
+            android:name=".ui.EditProfileActivity"
+            android:label="@string/edit_profile"
             android:screenOrientation="portrait"/>
 
         <activity
@@ -66,6 +71,10 @@
             android:screenOrientation="portrait"/>
 
         <activity
+            android:name=".ui.ProductActivity"
+            android:screenOrientation="portrait"/>
+
+        <activity
             android:name=".ui.ShoppingCartActivity"
             android:label="@string/shopping_cart"
             android:screenOrientation="portrait"/>
@@ -76,8 +85,17 @@
             android:screenOrientation="portrait"/>
 
         <activity
+            android:name=".ui.GroceryListItemActivity"
+            android:screenOrientation="portrait"/>
+
+        <activity
             android:name=".ui.OrderHistoryActivity"
             android:label="@string/order_history"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".ui.OrderDetailsActivity"
+            android:label="@string/order_details"
             android:screenOrientation="portrait" />
 
         <activity

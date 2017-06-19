@@ -3,7 +3,7 @@ package com.app.grocergrocer.grocergrocer.ui;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
-import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -13,8 +13,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.LinearLayout;
 
 import com.app.grocergrocer.grocergrocer.R;
 import com.app.grocergrocer.grocergrocer.adapters.ExploreAdapter;
@@ -46,30 +44,20 @@ public class ExploreActivity extends AppCompatActivity
         navigationView.setNavigationItemSelectedListener(this);
         navigationView.getMenu().getItem(0).setChecked(true);
 
-        View headerView = navigationView.getHeaderView(0);
-        LinearLayout header = (LinearLayout) headerView.findViewById(R.id.header_view);
-        header.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(v.getContext(), AccountDetailsActivity.class);
-                startActivity(intent);
-            }
-        });
-
         List<Product> productList = new ArrayList<>();
-        productList.add(new Product("http://i.imgur.com/8lu1aR9.png", "Colgate Max Clean Smart Foam", "1 box", "₱ 87.00", "₱ 100.00", "-21%"));
+        productList.add(new Product("http://i.imgur.com/8lu1aR9.png", "Colgate Max Clean Smart Foam Colgate Max Clean Smart Foam wrap_content", "1 box", "₱ 87.00", "₱ 100.00", "-21%"));
         productList.add(new Product("http://i.imgur.com/ErQsnTA.png", "Eggs", "6 pcs.", "₱ 50.00", null, null));
         productList.add(new Product("http://i.imgur.com/6AKLMix.png", "Coca-Cola Can", "1 can", "₱ 35.00", "₱ 50.00", "-10%"));
         productList.add(new Product("http://i.imgur.com/zFMnLNY.png", "Palmolive Naturals Soap Calming Pleasure", "1 box", "₱ 23.00", "₱ 30.00", "-5%"));
         productList.add(new Product("http://i.imgur.com/3aInE2Y.png", "Cornetto Classic Vanilla", "1 pc.", "₱ 25.00", null, null));
-        productList.add(new Product("http://i.imgur.com/HKPro8L.png", "Piattos Cheese", "1 pc.", "₱ 28.00", null, null));
+        productList.add(new Product("http://i.imgur.com/HKPro8L.png", "Piattos Cheese Colgate Max Clean Smart Foam wrap_content", "1 pc.", "₱ 28.00", null, null));
         productList.add(new Product("http://i.imgur.com/zb2ZZhN.png", "Eden Original", "1 box", "₱ 30.00", "₱ 40.00", "-8%"));
         productList.add(new Product("http://i.imgur.com/do90fSj.png", "Wilkins Pure Purified Water", "1 bottle", "₱ 69.00", null, null));
         productList.add(new Product("http://i.imgur.com/i3JYPxQ.png", "Cabbage", "1 pc.", "₱ 16.00", "₱ 25.00", "-2%"));
         productList.add(new Product("http://i.imgur.com/ShVxwd2.png", "Whole Chicken", "1 pc.", "₱ 398.00", "₱ 500.00", "-40%"));
 
         RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
-        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
+        RecyclerView.LayoutManager layoutManager = new GridLayoutManager(this, 2);
         RecyclerView.Adapter adapter = new ExploreAdapter(productList);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(layoutManager);
@@ -126,6 +114,9 @@ public class ExploreActivity extends AppCompatActivity
             startActivity(intent);
         } else if (id == R.id.nav_grocery_list) {
             intent = new Intent(this, GroceryListActivity.class);
+            startActivity(intent);
+        } else if (id == R.id.nav_my_account) {
+            intent = new Intent(this, MyAccountActivity.class);
             startActivity(intent);
         } else if (id == R.id.nav_logout) {
             intent = new Intent(this, MainActivity.class);

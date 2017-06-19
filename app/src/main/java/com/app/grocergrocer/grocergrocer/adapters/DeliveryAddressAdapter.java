@@ -8,145 +8,77 @@ import android.widget.RadioButton;
 import android.widget.TextView;
 
 import com.app.grocergrocer.grocergrocer.R;
+import com.app.grocergrocer.grocergrocer.models.DeliveryAddress;
+
+import java.util.List;
 
 public class DeliveryAddressAdapter extends RecyclerView.Adapter<DeliveryAddressAdapter.ViewHolder> {
 
-    private String[] names = {
-            "John James Libron",
-            "Julrecha Lumambas",
-            "Virgil John Lomocso",
-            "Maria Reynalen Quijada",
-            "Artis Bulawit",
-            "Michael Libosada",
-            "John Paul Ybanez",
-            "Daniel Jared Yap",
-            "Vin Venture",
-            "Cett Ashweather"
-    };
+    private List<DeliveryAddress> mDeliveryAddressList;
+    private int mSelectedItem = -1;
 
-    private String[] completeAddress = {
-            "Corazon Vill. 2, San Isidro Talisay City, Cebu",
-            "Corazon Vill. 2, San Isidro Talisay City, Cebu",
-            "Corazon Vill. 2, San Isidro Talisay City, Cebu",
-            "Corazon Vill. 2, San Isidro Talisay City, Cebu",
-            "Corazon Vill. 2, San Isidro Talisay City, Cebu",
-            "Corazon Vill. 2, San Isidro Talisay City, Cebu",
-            "Corazon Vill. 2, San Isidro Talisay City, Cebu",
-            "Corazon Vill. 2, San Isidro Talisay City, Cebu",
-            "Corazon Vill. 2, San Isidro Talisay City, Cebu",
-            "Corazon Vill. 2, San Isidro Talisay City, Cebu"
-    };
+    public DeliveryAddressAdapter(List<DeliveryAddress> deliveryAddressList) {
+        mDeliveryAddressList = deliveryAddressList;
+    }
 
-    private String[] provinces = {
-            "Cebu",
-            "Cebu",
-            "Cebu",
-            "Cebu",
-            "Cebu",
-            "Cebu",
-            "Cebu",
-            "Cebu",
-            "Cebu",
-            "Cebu"
-    };
+    public class ViewHolder extends RecyclerView.ViewHolder {
 
-    private String[] city_municipality = {
-            "Talisay City",
-            "Cebu City",
-            "Talisay City",
-            "Cebu City",
-            "Talisay City",
-            "Cebu City",
-            "Talisay City",
-            "Cebu City",
-            "Talisay City",
-            "Cebu City"
-    };
-
-    private String[] barangay = {
-            "San Isidro",
-            "San Isidro",
-            "San Isidro",
-            "San Isidro",
-            "San Isidro",
-            "San Isidro",
-            "San Isidro",
-            "San Isidro",
-            "San Isidro",
-            "San Isidro"
-    };
-
-    private String[] mobileNo = {
-            "0923127129",
-            "0923127129",
-            "0923127129",
-            "0923127129",
-            "0923127129",
-            "0923127129",
-            "0923127129",
-            "0923127129",
-            "0923127129",
-            "0923127129"
-    };
-
-    private String[] addressSpecificInstructions = {
-            "Call this number when you arrived.",
-            "Call this number when you arrived.",
-            "Call this number when you arrived.",
-            "Call this number when you arrived.",
-            "Call this number when you arrived.",
-            "Call this number when you arrived.",
-            "Call this number when you arrived.",
-            "Call this number when you arrived.",
-            "Call this number when you arrived.",
-            "Call this number when you arrived."
-    };
-
-    private int mSelectedItem = 1;
-
-    class ViewHolder extends RecyclerView.ViewHolder{
-
-        RadioButton rbBillngAddress;
+        RadioButton rbDeliveryAddress;
         TextView txtName;
         TextView txtCompleteAddress;
         TextView txtProvince;
-        TextView txtCityMunicipality;
+        TextView txtCity;
         TextView txtBarangay;
         TextView txtMobileNo;
         TextView txtAddressSpecificInstructions;
 
         ViewHolder(View itemView) {
             super(itemView);
-            rbBillngAddress = (RadioButton)itemView.findViewById(R.id.radio_billing_address);
+            rbDeliveryAddress = (RadioButton)itemView.findViewById(R.id.radio_delivery_address);
             txtName = (TextView)itemView.findViewById(R.id.text_name);
             txtCompleteAddress = (TextView)itemView.findViewById(R.id.text_complete_address);
             txtProvince = (TextView)itemView.findViewById(R.id.text_province);
-            txtCityMunicipality = (TextView) itemView.findViewById(R.id.text_city_municipality);
+            txtCity = (TextView) itemView.findViewById(R.id.text_city);
             txtBarangay = (TextView)itemView.findViewById(R.id.text_barangay);
             txtMobileNo = (TextView)itemView.findViewById(R.id.text_mobile_no);
             txtAddressSpecificInstructions = (TextView) itemView.findViewById(R.id.text_address_specific_instructions);
+
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override public void onClick(View v) {
+                    notifyItemChanged(mSelectedItem);
+                    mSelectedItem = getAdapterPosition();
+                    notifyItemChanged(mSelectedItem);
+                }
+            });
         }
     }
 
     @Override
-    public DeliveryAddressAdapter.ViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
+    public DeliveryAddressAdapter.ViewHolder onCreateViewHolder(ViewGroup viewGroup, int viewType) {
         View v = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.card_delivery_address, viewGroup, false);
         return new ViewHolder(v);
     }
 
     @Override
-    public void onBindViewHolder(final DeliveryAddressAdapter.ViewHolder viewHolder, int i) {
-        viewHolder.txtName.setText(names[i]);
-        viewHolder.txtCompleteAddress.setText(completeAddress[i]);
-        viewHolder.txtProvince.setText(provinces[i]);
-        viewHolder.txtCityMunicipality.setText(city_municipality[i]);
-        viewHolder.txtBarangay.setText(barangay[i]);
-        viewHolder.txtMobileNo.setText(mobileNo[i]);
-        viewHolder.txtAddressSpecificInstructions.setText(addressSpecificInstructions[i]);
+    public void onBindViewHolder(final DeliveryAddressAdapter.ViewHolder viewHolder, int position) {
+        final DeliveryAddress deliveryAddress = mDeliveryAddressList.get(position);
+
+        viewHolder.txtName.setText(deliveryAddress.getName());
+        viewHolder.txtCompleteAddress.setText(deliveryAddress.getCompleteAddress());
+        viewHolder.txtProvince.setText(deliveryAddress.getProvince());
+        viewHolder.txtCity.setText(deliveryAddress.getCity());
+        viewHolder.txtBarangay.setText(deliveryAddress.getBarangay());
+        viewHolder.txtMobileNo.setText(deliveryAddress.getMobileNo());
+        viewHolder.txtAddressSpecificInstructions.setText(deliveryAddress.getAddressSpecificInstructions());
+        if (position == mSelectedItem) {
+            viewHolder.rbDeliveryAddress.setChecked(true);
+        } else {
+            viewHolder.rbDeliveryAddress.setChecked(false);
+        }
     }
 
     @Override
     public int getItemCount() {
-        return names.length;
+        return null == mDeliveryAddressList ? 0 : mDeliveryAddressList.size();
     }
 }

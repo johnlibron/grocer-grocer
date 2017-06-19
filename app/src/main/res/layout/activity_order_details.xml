@@ -1,0 +1,412 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:fitsSystemWindows="true"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.OrderDetailsActivity">
+
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/AppTheme.AppBarOverlay">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorPrimary"
+            app:popupTheme="@style/AppTheme.PopupOverlay" />
+
+    </android.support.design.widget.AppBarLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="none"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <android.support.v7.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                app:cardElevation="0dp"
+                app:cardCornerRadius="0dp"
+                app:contentPadding="10dp">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/order_no"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/colorPrimaryText"
+                        android:textSize="12sp"/>
+
+                    <TextView
+                        android:id="@+id/total"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="10dp"
+                        android:layout_below="@+id/order_no"
+                        android:text="Total:"
+                        android:textSize="12sp"
+                        android:textColor="@color/colorSecondaryText"/>
+
+                    <TextView
+                        android:id="@+id/total_price"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/order_no"
+                        android:layout_toEndOf="@+id/total"
+                        android:text="₱ 1,234.00"
+                        android:textSize="12sp"
+                        android:textColor="@color/colorPrimaryText"/>
+
+                    <TextView
+                        android:id="@+id/place_order"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/total"
+                        android:textColor="@color/colorSecondaryText"
+                        android:textSize="12sp" />
+
+                </RelativeLayout>
+
+            </android.support.v7.widget.CardView>
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/recycler_view"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
+
+            <android.support.v7.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                app:cardElevation="0dp"
+                app:cardCornerRadius="0dp"
+                app:contentPadding="10dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/total_summary"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Total Summary"
+                        android:textColor="@color/colorPrimaryText"
+                        android:textSize="12sp" />
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp">
+
+                        <TextView
+                            android:id="@+id/your_order"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/your_order"
+                            android:textColor="@color/colorSecondaryText"
+                            android:textSize="12sp" />
+
+                        <TextView
+                            android:id="@+id/your_order_fee"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/fee"
+                            android:layout_toEndOf="@+id/your_order"
+                            android:textAlignment="textEnd"
+                            android:layout_alignParentEnd="true"
+                            android:textColor="@color/colorPrimaryText"
+                            android:textSize="12sp"
+                            android:textStyle="bold" />
+
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp">
+
+                        <TextView
+                            android:id="@+id/delivery"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/delivery_fee"
+                            android:textColor="@color/colorSecondaryText"
+                            android:textSize="12sp" />
+
+                        <TextView
+                            android:id="@+id/delivery_fee"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/fee"
+                            android:layout_toEndOf="@+id/delivery"
+                            android:textAlignment="textEnd"
+                            android:layout_alignParentEnd="true"
+                            android:textColor="@color/colorPrimaryText"
+                            android:textSize="12sp"
+                            android:textStyle="bold" />
+
+                    </RelativeLayout>
+
+                    <View
+                        android:layout_width="fill_parent"
+                        android:layout_height=".5dp"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="5dp"
+                        android:background="@color/colorDivider" />
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="5dp">
+
+                        <TextView
+                            android:id="@+id/total_text"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/total"
+                            android:textColor="@color/colorSecondaryText"
+                            android:textSize="12sp" />
+
+                        <TextView
+                            android:id="@+id/total_fee"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_toEndOf="@+id/total_text"
+                            android:text="@string/fee"
+                            android:textAlignment="textEnd"
+                            android:layout_alignParentEnd="true"
+                            android:textColor="@color/colorPrimaryText"
+                            android:textSize="12sp"
+                            android:textStyle="bold" />
+
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:id="@+id/paid_by"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="5dp"
+                            android:text="Paid by"
+                            android:textColor="@color/colorSecondaryText"
+                            android:textSize="12sp" />
+
+                        <TextView
+                            android:id="@+id/payment_type"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_toEndOf="@+id/paid_by"
+                            android:text="Cash On Delivery"
+                            android:textColor="@color/colorPrimaryText"
+                            android:textSize="12sp" />
+
+                    </RelativeLayout>
+
+                </LinearLayout>
+
+            </android.support.v7.widget.CardView>
+
+            <android.support.v7.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                app:cardCornerRadius="0dp"
+                app:cardElevation="0dp"
+                app:contentPadding="10dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <RelativeLayout
+                        android:id="@+id/delivery_address_section"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:id="@+id/delivery_address"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="5dp"
+                            android:layout_toStartOf="@+id/edit_delivery_address"
+                            android:text="@string/delivery_address"
+                            android:textColor="@color/colorPrimaryText"
+                            android:textSize="13sp" />
+
+                        <TextView
+                            android:id="@+id/text_name"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/delivery_address"
+                            android:text="John James Libron"
+                            android:textColor="@color/colorSecondaryText"
+                            android:textSize="12sp" />
+
+                        <TextView
+                            android:id="@+id/text_complete_address"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/text_name"
+                            android:text="Corazon Vill. 2, San Isidro Talisay City, Cebu"
+                            android:textColor="@color/colorSecondaryText"
+                            android:textSize="12sp" />
+
+                        <TextView
+                            android:id="@+id/text_province"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/text_complete_address"
+                            android:text="Cebu"
+                            android:textColor="@color/colorSecondaryText"
+                            android:textSize="12sp" />
+
+                        <TextView
+                            android:id="@+id/text_separator_1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/text_complete_address"
+                            android:layout_marginEnd="5dp"
+                            android:layout_marginStart="5dp"
+                            android:layout_toEndOf="@+id/text_province"
+                            android:text="@string/dash_separator"
+                            android:textColor="@color/colorSecondaryText"
+                            android:textSize="12sp" />
+
+                        <TextView
+                            android:id="@+id/text_city"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/text_complete_address"
+                            android:layout_toEndOf="@+id/text_separator_1"
+                            android:text="Talisay City"
+                            android:textColor="@color/colorSecondaryText"
+                            android:textSize="12sp" />
+
+                        <TextView
+                            android:id="@+id/text_separator_2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/text_complete_address"
+                            android:layout_marginEnd="5dp"
+                            android:layout_marginStart="5dp"
+                            android:layout_toEndOf="@+id/text_city"
+                            android:text="@string/dash_separator"
+                            android:textColor="@color/colorSecondaryText"
+                            android:textSize="12sp" />
+
+                        <TextView
+                            android:id="@+id/text_barangay"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/text_complete_address"
+                            android:layout_toEndOf="@+id/text_separator_2"
+                            android:text="San Isidro"
+                            android:textColor="@color/colorSecondaryText"
+                            android:textSize="12sp" />
+
+                        <TextView
+                            android:id="@+id/text_mobile_no_title"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/text_province"
+                            android:layout_marginEnd="10dp"
+                            android:text="@string/mobile_number"
+                            android:textColor="@color/colorSecondaryText"
+                            android:textSize="12sp" />
+
+                        <TextView
+                            android:id="@+id/text_mobile_no"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/text_province"
+                            android:layout_toEndOf="@+id/text_mobile_no_title"
+                            android:text="0917128835"
+                            android:textColor="@color/colorSecondaryText"
+                            android:textSize="12sp" />
+
+                        <TextView
+                            android:id="@+id/text_address_specific_instructions_title"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/text_mobile_no_title"
+                            android:text="@string/address_specific_instructions"
+                            android:textColor="@color/colorSecondaryText"
+                            android:textSize="12sp" />
+
+                        <TextView
+                            android:id="@+id/text_address_specific_instructions"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/text_address_specific_instructions_title"
+                            android:text="Call this number when you arrive. Please doorbell only once so you cannot wake my baby."
+                            android:textColor="@color/colorSecondaryText"
+                            android:textSize="12sp" />
+
+                    </RelativeLayout>
+
+                </LinearLayout>
+
+            </android.support.v7.widget.CardView>
+
+            <android.support.v7.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardElevation="0dp"
+                app:cardCornerRadius="0dp"
+                app:contentPadding="10dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <android.support.v7.widget.AppCompatButton
+                        android:id="@+id/btn_place_new_order"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="10dp"
+                        android:background="@drawable/btn_red_bg"
+                        android:text="@string/btn_place_new_order"
+                        android:textColor="@color/white"
+                        android:textSize="15sp"/>
+
+                    <android.support.v7.widget.AppCompatButton
+                        android:id="@+id/btn_cancel_order"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/btn_red_bg"
+                        android:text="@string/btn_cancel_order"
+                        android:textColor="@color/white"
+                        android:textSize="15sp"/>
+
+                </LinearLayout>
+
+            </android.support.v7.widget.CardView>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</android.support.design.widget.CoordinatorLayout>
